@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
-  <title>회원가입</title>
+  <title>로그인</title>
   <style>
     @import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
     *{
@@ -19,7 +19,7 @@
     .container{
       background: #2d3e3f;
       width: 350px;
-      height: 385px;
+      height: 250px;
       padding-bottom: 20px;
       position: absolute;
       top:50%;
@@ -28,6 +28,7 @@
       margin: auto;
       padding: 70px 50px 20px 50px;
     }
+
 
     .fl{
       float: left;
@@ -107,25 +108,11 @@
 <body>
 <!-- Body of Form starts -->
 <div class="container">
-  <form method="post" autocomplete="on" action="signup">
+  <form method="post" autocomplete="on">
 
     <div class="box">
-      <h1 style="font-size: 35px;color: white;">회원가입</h1>
+      <h1 style="font-size: 35px;color: white;">로그인</h1>
     </div>
-
-    <!--studentNumber-->
-    <div class="box">
-      <label for="firstName" class="fl fontLabel"> 학번: </label>
-      <div class="new iconBox">
-        <i class="fa fa-user" aria-hidden="true"></i>
-      </div>
-      <div class="fr">
-        <input type="text" name="studentNumber" placeholder="학번.."
-               class="textBox" autofocus="on" required>
-      </div>
-      <div class="clr"></div>
-    </div>
-    <!--studentNumber-->
 
     <!---Email ID---->
     <div class="box">
@@ -143,50 +130,16 @@
       <label for="password" class="fl fontLabel"> 비밀번호 </label>
       <div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
       <div class="fr">
-        <input type="Password" required name="studentPassword" placeholder="비밀번호.." class="textBox" >
+        <input type="Password" required name="studentPassword" placeholder="비밀번호" class="textBox">
       </div>
       <div class="clr"></div>
     </div>
     <!---Password---->
 
-    <!--name-->
-    <div class="box">
-      <label for="firstName" class="fl fontLabel"> 이름: </label>
-      <div class="new iconBox">
-        <i class="fa fa-user" aria-hidden="true"></i>
-      </div>
-      <div class="fr">
-        <input type="text" name="studentName" placeholder="이름.."
-               class="textBox" required>
-      </div>
-      <div class="clr"></div>
-    </div>
-    <!--name-->
-
-    <!--StudentPhone-->
-    <div class="box">
-      <label for="firstName" class="fl fontLabel"> 전화번호: </label>
-      <div class="new iconBox">
-        <i class="fa fa-user" aria-hidden="true"></i>
-      </div>
-      <div class="fr">
-        <input type="text" name="studentPhone" placeholder="전화번호.."
-               class="textBox" required>
-      </div>
-      <div class="clr"></div>
-    </div>
-    <!--StudentPhone-->
-
-    <!--Terms and Conditions------>
-    <div class="box terms">
-      <input type="checkbox" name="Terms" required> &nbsp; 약관에 동의합니다.
-    </div>
-    <!--Terms and Conditions------>
-
     <!---Submit Button------>
     <div class="box" style="background: #2d3e3f">
-      <input type="Submit" name="Submit" class="submit" value="등록하기">
-      <input type="button"  onclick="location.href='/'" style="margin-right: 30px;" class="submit" value="돌아가기">
+      <input type="Submit" name="Submit" class="submit" value="로그인하기">
+      <input type="button" onclick="location.href='/signup'" style="margin-right: 30px;" class="submit" value="회원가입">
     </div>
     <!---Submit Button----->
   </form>
