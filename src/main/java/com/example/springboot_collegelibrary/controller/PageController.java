@@ -15,6 +15,4 @@ public class PageController {
     public String signup(){
         return "signup";
     }
-
-
 }
