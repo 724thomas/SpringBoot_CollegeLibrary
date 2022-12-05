@@ -16,9 +16,9 @@
           var values="";
           if(result!==null){
             for (var i=0; i<result.length; i++){
-              values+="<br>"+result[i]["url"];
-              values+="<br><a href="+result[i]["url"]+">"+result[i]["title"]+"</a>";
-              values+="<br>"+result[i]["description"];
+              values+="<br>"+result[i]["bookId"];
+              values+="<br>"+result[i]["bookTitle"];
+              values+="<br>"+result[i]["bookAuthor"];
               values+="<br>";
             }
             document.getElementById("ajaxTable").innerHTML=values;
