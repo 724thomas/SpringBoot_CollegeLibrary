@@ -6,7 +6,7 @@
   <a href="/logout">Logout</a>
 </head>
 <script>
-  function test() {
+  function search() {
     let obj=document.getElementById("keyword").value;
     const httpRequest = new XMLHttpRequest();
     httpRequest.onreadystatechange = () =>{
@@ -16,10 +16,12 @@
           var values="";
           if(result!==null){
             for (var i=0; i<result.length; i++){
+              var title = result[i]["bookId"];
               values+="<br>"+result[i]["bookId"];
               values+="<br>"+result[i]["bookTitle"];
               values+="<br>"+result[i]["bookAuthor"];
               values+="<br>";
+              <button onClick="borrow();" value={title} type="button">Search</button>
             }
             document.getElementById("ajaxTable").innerHTML=values;
           }
@@ -36,8 +38,8 @@
 
 <body>
 <h1>SEARCH</h1>
-<input class="" id="keyword" name="keyword" onkeyup="test();" type="text" size="20">
-<button onclick="test();" type="button">Search</button>
+<input class="" id="keyword" name="keyword" onkeyup="search();" type="text" size="20">
+<button onclick="search();" type="button">Search</button>
 </body>
 <div  id="ajaxTable"></div>
 <footer class="main__nav__next">
