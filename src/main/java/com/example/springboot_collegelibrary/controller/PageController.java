@@ -9,11 +9,11 @@ import javax.servlet.http.HttpSession;
 public class PageController {
 
     @GetMapping("/")
-    public String login(HttpSession session){
+    public String index(HttpSession session){
         if (session.getAttribute("email")==null) {
             return "login";
         }
-        return "search";
+        return "searchPage";
     }
 
     @GetMapping("/signup")
@@ -21,9 +21,9 @@ public class PageController {
         return "signup";
     }
 
-    @GetMapping("/search")
+    @GetMapping("/searchPage")
     public String search(){
-        return "search";
+        return "searchPage";
     }
 
     @GetMapping("/logout")

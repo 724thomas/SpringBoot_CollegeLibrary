@@ -25,7 +25,7 @@ public class StudentService {
         if (tempHash==null){
             return false;
         }
-        if (tempHash.get("studentemail").equals(email) && tempHash.get("studentpassword").equals(password)){
+        if (tempHash.get("studentEmail").equals(email) && tempHash.get("studentPassword").equals(password)){
             System.out.println("StudentService.correctEmailOrPassword : 로그인 성공");
             return true;
         }

@@ -20,19 +20,22 @@ public class StudentController {
 
     @PostMapping("/")
     public String login(@RequestParam String studentEmail, String studentPassword, HttpSession session){
+        if (session.getAttribute("email")!=null){
+            return "searchPage";
+        }
         if(studentService.correctEmailOrPassword(studentEmail,studentPassword)){
             System.out.println("성공");
             session.setAttribute("email",studentEmail);
-            return "search";
+            return "searchPage";
         }
         System.out.println("실패");
-        return "redirect:/";
+        return "redirect:/login";
     }
 
 
     @PostMapping("/signup")
     public String signup(@RequestParam HashMap<String, String> student){
         studentService.studentSignUp(student);
-        return "redirect:/";
+        return "redirect:/login";
     }
 }
