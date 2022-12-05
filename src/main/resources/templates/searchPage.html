@@ -16,12 +16,11 @@
           var values="";
           if(result!==null){
             for (var i=0; i<result.length; i++){
-              var title = result[i]["bookId"];
+              var bookId = result[i]["bookId"];
               values+="<br>"+result[i]["bookId"];
               values+="<br>"+result[i]["bookTitle"];
               values+="<br>"+result[i]["bookAuthor"];
               values+="<br>";
-              <button onClick="borrow();" value={title} type="button">Search</button>
             }
             document.getElementById("ajaxTable").innerHTML=values;
           }
