@@ -32,8 +32,4 @@ public class PageController {
         return "redirect:/";
     }
 
-    @GetMapping("/studentHistory")
-    public String studentBorrowStatus(){
-        return "studentHistory";
-    }
 }
