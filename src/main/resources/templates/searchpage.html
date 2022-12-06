@@ -20,7 +20,10 @@
               values+="<br>"+result[i]["bookId"];
               values+="<br>"+result[i]["bookTitle"];
               values+="<br>"+result[i]["bookAuthor"];
+              values+="<br><button onclick='location.href=\"/book?bookId="+bookId+"\"'>상세보기</button>";
+
               values+="<br>";
+
             }
             document.getElementById("ajaxTable").innerHTML=values;
           }
@@ -40,7 +43,10 @@
 <input class="" id="keyword" name="keyword" onkeyup="search();" type="text" size="20">
 <button onclick="search();" type="button">Search</button>
 </body>
-<div  id="ajaxTable"></div>
+<div  id="ajaxTable">
+</div>
+
+
 <footer class="main__nav__next">
 </footer>
 </html>

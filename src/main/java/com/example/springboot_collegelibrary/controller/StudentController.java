@@ -21,12 +21,12 @@ public class StudentController {
     @PostMapping("/")
     public String login(@RequestParam String studentEmail, String studentPassword, HttpSession session){
         if (session.getAttribute("email")!=null){
-            return "searchPage";
+            return "searchpage";
         }
         if(studentService.correctEmailOrPassword(studentEmail,studentPassword)){
             System.out.println("성공");
             session.setAttribute("email",studentEmail);
-            return "searchPage";
+            return "searchpage";
         }
         System.out.println("실패");
         return "redirect:/login";

@@ -13,7 +13,7 @@ public class PageController {
         if (session.getAttribute("email")==null) {
             return "login";
         }
-        return "searchPage";
+        return "searchpage";
     }
 
     @GetMapping("/signup")
@@ -23,7 +23,7 @@ public class PageController {
 
     @GetMapping("/searchPage")
     public String search(){
-        return "searchPage";
+        return "searchpage";
     }
 
     @GetMapping("/logout")

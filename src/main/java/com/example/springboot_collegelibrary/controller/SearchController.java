@@ -17,11 +17,7 @@ public class SearchController {
 
     @GetMapping("/searchs")
     public ArrayList<HashMap<String,String>> searchBook(@RequestParam String keyword){
-
-
-        System.out.println("This Part Works");
         try{
-            System.out.println("This Part Works2");
             System.out.println(keyword);
             return searchService.searchBookByKeyword(keyword);
         }catch (Exception e){
