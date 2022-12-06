@@ -31,4 +31,9 @@ public class PageController {
         session.setAttribute("email",null);
         return "redirect:/";
     }
+
+    @GetMapping("/studentHistory")
+    public String studentBorrowStatus(){
+        return "studentHistory";
+    }
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:each="book : ${BookDetailDTO}">
+        <div th:if="${book.getBookAvailable() > 0}">
+            <form action="/bookdetail" method="post">
+                <input type="hidden" name="bookId" th:value="${book.getBookId()}">
+                <input type="submit" value="대여하기">
+            </form>
+        </div>
+        <div th:if="${book.getBookAvailable() == 0}">
+            <form action="/bookdetail" method="post">
+                <h4>대여 할 수 있는 책이 없습니다.</h4>
+                <a href="/">돌아가기</a>
+            </form>
+        </div>
+</body>
+</html>

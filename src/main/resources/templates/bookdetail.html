@@ -7,7 +7,7 @@
 <body>
 <!--상세보기-->
 <div class="container">
-    <h3>도서 상세보기</h3>
+    <h2>도서 상세보기</h2>
     <tr>
         <td>책 등록ID: </td>
         <td th:text="${BookDetailDTO.getBookId()}"></td>
@@ -28,7 +28,21 @@
         <td th:text="${BookDetailDTO.getBookPrice()}"></td>
     </tr>
 
+    <div th:if="${BookDetailDTO.getBookAvailable() > 0}">
+        <form action="/bookdetail" method="post">
+            <input type="hidden" name="bookId" th:value="${BookDetailDTO.getBookId()}">
+            <input type="submit" value="대여하기">
+        </form>
+    </div>
+    <div th:if="${BookDetailDTO.getBookAvailable() == 0}">
+        <form action="/bookdetail" method="post">
+            <h4>대여 할 수 있는 책이 없습니다.</h4>
+            <a href="/">돌아가기</a>
+        </form>
+    </div>
+
 </div>
+
 
 </body>
 </html>
