@@ -5,14 +5,30 @@
     <title>총 내역</title>
 </head>
 <body>
-    <div th:each="dto : ${studentHistoryDTO}">
-        <p>책 일련번호: <span th:text="${dto.bookTitle}"></span></p>
-        <p>책 이름: <span th:text="${dto.bookTitle}"></span></p>
-        <p>책 저자: <span th:text="${dto.bookAuthor}"></span></p>
-        <p>책 가격: <span th:text="${dto.bookPrice}"></span></p>
-        <p>대출일자: <span th:text="${dto.borrowedDate}"></span></p>
-        <p>반납기일: <span th:text="${dto.dueDate}"></span></p>
-        <p>반납일자: <span th:text="${dto.returnedDate}"></span></p>
+    <p><h2>총 대여내역</h2></p>
+    <div th:each="BorrowDTO : ${studentCurrentBorrowDTO}">
+        <p>책 일련번호: <span th:text="${BorrowDTO.bookTitle}"></span></p>
+        <p>책 이름: <span th:text="${BorrowDTO.bookTitle}"></span></p>
+        <p>책 저자: <span th:text="${BorrowDTO.bookAuthor}"></span></p>
+        <p>책 가격: <span th:text="${BorrowDTO.bookPrice}"></span>원</p>
+        <p>대출일자: <span th:text="${BorrowDTO.borrowedDate}"></span></p>
+        <p>반납기일: <span th:text="${BorrowDTO.dueDate}"></span></p>
+        <form action="/bookdetail" method="post">
+            <input type="hidden" name="bookId" th:value="${BookDetailDTO.getBookId()}">
+            <input type="submit" value="대여하기">
+        </form>
+
+        <br>
+    </div>
+
+    <div th:each="HistoryDTO : ${studentHistoryDTO}">
+        <p>책 일련번호: <span th:text="${HistoryDTO.bookTitle}"></span></p>
+        <p>책 이름: <span th:text="${HistoryDTO.bookTitle}"></span></p>
+        <p>책 저자: <span th:text="${HistoryDTO.bookAuthor}"></span></p>
+        <p>책 가격: <span th:text="${HistoryDTO.bookPrice}"></span>원</p>
+        <p>대출일자: <span th:text="${HistoryDTO.borrowedDate}"></span></p>
+        <p>반납기일: <span th:text="${HistoryDTO.dueDate}"></span></p>
+        <p>반납일자: <span th:text="${HistoryDTO.returnedDate}"></span></p>
         <br>
     </div>
 
