@@ -32,4 +32,8 @@ public class PageController {
         return "redirect:/";
     }
 
+    @GetMapping("/instructionpopup")
+    public String instructionPopUp(){
+        return "instructionpopup";
+    }
 }

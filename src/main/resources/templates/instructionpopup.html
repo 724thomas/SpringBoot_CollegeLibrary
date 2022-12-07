@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>
+        Popups
+    </title>
+</head>
+<body>
+<input type="button" onclick="closingFunction()" value="닫기">
+
+<script>
+    function closingFunction() {
+        $.ajax({
+            url: "/instructionpopupclose",
+            data : {
+                check: "true"
+            },
+            dataType: "json",
+            success: function (data) {
+                window.close()
+                console.log(data);
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

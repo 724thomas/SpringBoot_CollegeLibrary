@@ -5,8 +5,12 @@
   <title>Search</title>
   <a href="/logout">Logout</a>
   <a href="/studentHistory">총 내역</a>
+
 </head>
 <script>
+  window.open("/instructionpopup", "instruction", "width=500, height=500");
+
+
   function search() {
     let obj=document.getElementById("keyword").value;
     const httpRequest = new XMLHttpRequest();
