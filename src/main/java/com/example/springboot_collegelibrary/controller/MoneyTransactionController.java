@@ -18,9 +18,9 @@ public class MoneyTransactionController {
     @GetMapping("/depositPoint")
     public String depositPoint(@ModelAttribute MoneyTransactionDTO moneyTransactionDTO, HttpSession session) {
         moneyTransactionDTO.setEmail(String.valueOf(session.getAttribute("email")));
-        System.out.println(moneyTransactionDTO.getEmail() + " 님의 결제가 완료되었습니다.");
-        System.out.println(moneyTransactionDTO.getAmountTransaction() + " 포인트가 충전되었습니다.");
-        System.out.println(moneyTransactionDTO.getUid() + " 결제번호입니다.");
+        System.out.println("MoneyTransactionController.depositPoint : " + moneyTransactionDTO.getEmail() + " 님의 결제가 완료되었습니다.");
+        System.out.println("MoneyTransactionController.depositPoint : " + moneyTransactionDTO.getAmountTransaction() + " 포인트가 충전되었습니다.");
+        System.out.println("MoneyTransactionController.depositPoint : " + moneyTransactionDTO.getUid() + " 결제번호입니다.");
         moneyTransactionService.moneyTransaction(moneyTransactionDTO);
         return "redirect:/";
     }

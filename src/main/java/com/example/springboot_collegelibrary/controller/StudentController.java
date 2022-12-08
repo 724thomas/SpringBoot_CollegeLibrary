@@ -24,7 +24,7 @@ public class StudentController {
             return "searchpage";
         }
         if(studentService.correctEmailOrPassword(studentEmail,studentPassword)){
-            System.out.println("성공");
+            System.out.println("StudentController.login : 로그인 성공");
             session.setAttribute("email",studentEmail);
             return "searchpage";
         }
