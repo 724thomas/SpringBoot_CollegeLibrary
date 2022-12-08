@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+</head>
+<!-- body -->
+
+<body class="main-layout inner_page" >
+    <form method="post" action="goWithdraw">
+        <div class="contact"  style="font-family: 'Jua', sans-serif;">
+            <div class="container" style="text-align: center;">
+               <h1 style="font-size:35px; padding-bottom: 35px;">출금하기</h1><br>
+                    <label class="box-radio-input"><input type="radio" name="withdrawAmount" value="10000"><span>10,000원</span></label><br>
+                    <label class="box-radio-input"><input type="radio" name="withdrawAmount" value="20000"><span>20,000원</span></label><br>
+                    <label class="box-radio-input"><input type="radio" name="withdrawAmount" value="30000"><span>30,000원</span></label><br>
+                    <label class="box-radio-input"><input type="radio" name="withdrawAmount" value="50000"><span>50,000원</span></label><br>
+                    <label class="box-radio-input"><input type="radio" name="withdrawAmount" value="100000"><span>100,000원</span></label><br>
+                    <label class="box-radio-input"><input type="radio" name="withdrawAmount" value="150000"><span>150,000원</span></label><br>
+                    <p  style="color: #ac2925; margin-top: 30px">출금하기의 최소 출금금액은 5,000원이며 <br/>최대 출금금액은 150,000원 입니다.</p>
+                    <button type="submit" class="submit">출 금 하 기</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

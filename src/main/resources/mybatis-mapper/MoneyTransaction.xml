@@ -16,4 +16,13 @@
         where
             studentEmail = #{email}
     </update>
+
+    <select id="selectStudentBalanceWithEmail" parameterType="String" resultType="java.lang.Integer">
+        select
+            balance
+        from
+            Student
+        where
+            studentEmail = #{email}
+    </select>
 </mapper>

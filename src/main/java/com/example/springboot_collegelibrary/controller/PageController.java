@@ -42,4 +42,9 @@ public class PageController {
     public String goPay(){
         return "deposit";
     }
+
+    @GetMapping("/goWithdraw")
+    public String goWithdraw(){
+        return "withdraw";
+    }
 }

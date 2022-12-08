@@ -15,4 +15,8 @@ public class MoneyTransactionRepository {
         return moneyTransactionMapper.moneyTransaction(moneyTransactionDTO) +
                 moneyTransactionMapper.updateStudentBalance(moneyTransactionDTO);
     }
+
+    public int selectStudentBalanceWithEmail(String email) {
+        return moneyTransactionMapper.selectStudentBalanceWithEmail(email);
+    }
 }

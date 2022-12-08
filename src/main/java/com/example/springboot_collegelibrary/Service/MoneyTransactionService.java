@@ -11,7 +11,12 @@ public class MoneyTransactionService {
     @Autowired
     private MoneyTransactionRepository moneyTransactionRepository;
 
-    public int moneyTransaction(MoneyTransactionDTO moneyTransactionDTO) {
-        return moneyTransactionRepository.moneyTransaction(moneyTransactionDTO);
+    public String moneyTransaction(MoneyTransactionDTO moneyTransactionDTO) {
+        if (moneyTransactionRepository.selectStudentBalanceWithEmail(moneyTransactionDTO.getEmail()) + moneyTransactionDTO.getAmountTransaction() >= 0) {
+            moneyTransactionRepository.moneyTransaction(moneyTransactionDTO);
+            return "Success";
+        }
+        return "Fail";
+
     }
 }

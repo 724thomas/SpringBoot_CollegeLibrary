@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MoneyTransactionMapper {
     public int moneyTransaction(MoneyTransactionDTO moneyTransactionDTO);
     public int updateStudentBalance(MoneyTransactionDTO moneyTransactionDTO);
+    public int selectStudentBalanceWithEmail(String email);
 }
