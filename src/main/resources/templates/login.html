@@ -130,11 +130,35 @@
             </div>
             <input type="submit" value="로그인">
             <input type="button" onclick="location.href='/signup'" value="회원가입">
+            <input type="button" onclick="location.href='/kakaoLogin'" value="카카오 로그인">
+            <a href="javascript:kakaoLogin()">카카오 로그인</a>
+        </form>
+        <form action="/kakaologin" method="post">
+            <input type="button" onclick="kakaoLogin()" name="kakaologin" value="kakao_account">
         </form>
     </div>
 </body>
 <script>
     localStorage.setItem("popup",'show')
 </script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+    window.Kakao.init("71de7b1c8884f8ddbac311f43a3c4204");
 
+    function kakaoLogin(){
+        window.Kakao.Auth.login({
+            scope: 'profile_nickname, account_email',
+            success: function(authOb) {
+                console.log(authOb);
+                window.Kakao.API.request({
+                    url: '/v2/user/me',
+                    success: res => {
+                        const kakao_account = res.kakao_account;
+                        console.log(kakao_account);
+                    }
+                });
+            }
+        });
+    }
+</script>
 </html>

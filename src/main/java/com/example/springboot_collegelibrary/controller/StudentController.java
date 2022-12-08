@@ -36,6 +36,6 @@ public class StudentController {
     @PostMapping("/signup")
     public String signup(@RequestParam HashMap<String, String> student) {
         studentService.studentSignUp(student);
-        return "redirect:/login";
+        return "redirect:/";
     }
 }

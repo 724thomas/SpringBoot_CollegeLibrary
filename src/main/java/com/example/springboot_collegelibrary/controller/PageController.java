@@ -5,8 +5,10 @@ import com.example.springboot_collegelibrary.Service.MoneyTransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 
 @Controller
 public class PageController {
@@ -29,7 +31,7 @@ public class PageController {
 
     @GetMapping("/searchPage")
     public String search(HttpSession session){
-        session.setAttribute("balance",moneyTransactionService.selectStudentBalanceWithEmail(session.getAttribute("email").toString()));
+//        session.setAttribute("balance",moneyTransactionService.selectStudentBalanceWithEmail(session.getAttribute("email").toString()));
         return "searchpage";
     }
 
@@ -52,5 +54,12 @@ public class PageController {
     @GetMapping("/goWithdraw")
     public String goWithdraw(){
         return "withdraw";
+    }
+
+    @GetMapping("/kakaologin")
+    public String kakaologin(@RequestParam HashMap<String,String> kakaologin){
+        System.out.println(kakaologin.keySet());
+        System.out.println(kakaologin.values());
+        return "redirect:/";
     }
 }
