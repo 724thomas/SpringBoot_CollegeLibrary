@@ -19,16 +19,8 @@
 
 <script>
     function closingFunction() {
-        $.ajax({
-            method: "POST",
-            url: "/instructionpopupclose",
-            data : {check: "true"},
-            dataType: "json",
-            success: function (data) {
-                console.log(data);
-                window.close()
-            }
-        });
+        localStorage.setItem('popup','dontshow');
+        window.close();
     }
 </script>
 
