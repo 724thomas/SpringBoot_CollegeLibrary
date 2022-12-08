@@ -6,12 +6,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class PopupController {
 
-    @GetMapping("/instructionpopupclose")
-    public String instructionPopUp(@RequestParam String close){
-        System.out.println(close);
-        return "instructionpopup";
+    @PostMapping("/instructionpopupclose")
+    public String instructionPopUp(@RequestParam String check, HttpSession session){
+        session.setAttribute("doNotShowInThisSession",true);
+        return check;
     }
 }

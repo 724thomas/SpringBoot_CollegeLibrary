@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <head>
     <meta charset="utf-8">
@@ -8,23 +8,32 @@
     </title>
 </head>
 <body>
-<input type="button" onclick="closingFunction()" value="닫기">
+    <h1><p>도서관 이용 방법:</p></h1>
+    <p>책을 검색 후, 대여할 수 있습니다.</p>
+    <p>대여하려면 해당 책의 가격만큼의 금액 충전 필요.</p>
+    <p>대여시 책의 가격만큼 충전된 금액 차감.</p>
+    <p>반납시 차감된 금액을 다시 돌려받는다.</p>
+    <p>반납기일은 대여날짜로부터 2주 후.</p>
+    <p>반납기일이 하루를 넘길때마다, 넣은 금액의 10%씩 차감된다.</p>
+    <p>예) 20,000원짜리 책의 반납기일을 5일 넘기면, 반납시 10,000원을 돌려받는다</p>
 
 <script>
     function closingFunction() {
         $.ajax({
+            method: "POST",
             url: "/instructionpopupclose",
-            data : {
-                check: "true"
-            },
+            data : {check: "true"},
             dataType: "json",
             success: function (data) {
-                window.close()
                 console.log(data);
+                window.close()
             }
         });
     }
 </script>
 
 </body>
+<footer>
+    <button onclick="closingFunction()">이번 로그인동안 이 팝업 띄우지 않기</button>
+</footer>
 </html>
