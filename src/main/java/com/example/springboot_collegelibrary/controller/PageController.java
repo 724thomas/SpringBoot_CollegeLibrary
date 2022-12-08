@@ -1,6 +1,8 @@
 package com.example.springboot_collegelibrary.controller;
 
 
+import com.example.springboot_collegelibrary.Service.MoneyTransactionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -8,6 +10,9 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class PageController {
+
+    @Autowired
+    MoneyTransactionService moneyTransactionService;
 
     @GetMapping("/")
     public String index(HttpSession session){
@@ -23,12 +28,13 @@ public class PageController {
     }
 
     @GetMapping("/searchPage")
-    public String search(){
+    public String search(HttpSession session){
+        session.setAttribute("balance",moneyTransactionService.selectStudentBalanceWithEmail(session.getAttribute("email").toString()));
         return "searchpage";
     }
 
     @GetMapping("/logout")
-    public String search(HttpSession session){
+    public String logout(HttpSession session){
         session.setAttribute("email",null);
         return "redirect:/";
     }

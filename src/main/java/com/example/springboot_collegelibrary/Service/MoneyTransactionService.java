@@ -17,6 +17,9 @@ public class MoneyTransactionService {
             return "Success";
         }
         return "Fail";
+    }
 
+    public int selectStudentBalanceWithEmail(String email) {
+        return moneyTransactionRepository.selectStudentBalanceWithEmail(email);
     }
 }
