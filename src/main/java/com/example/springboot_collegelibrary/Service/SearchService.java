@@ -14,9 +14,6 @@ public class SearchService {
     SearchRepository searchRepository;
 
     public ArrayList<HashMap<String,String>> searchBookByKeyword(String keyword){
-        if (keyword.equals("")){
-            return new ArrayList<>();
-        }
         return searchRepository.searchBookByKeyword(keyword);
     }
 }

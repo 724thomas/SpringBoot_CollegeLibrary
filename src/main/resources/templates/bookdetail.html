@@ -32,6 +32,7 @@
         <form action="/bookdetail" method="post">
             <input type="hidden" name="bookId" th:value="${BookDetailDTO.getBookId()}">
             <input type="submit" value="대여하기">
+            <a href="/">돌아가기</a>
         </form>
     </div>
     <div th:if="${BookDetailDTO.getBookAvailable() == 0}">

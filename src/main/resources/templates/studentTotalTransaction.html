@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>총 내역</title>
+</head>
+<body>
+    <p><h2>총 충전, 출금내역</h2></p>
+    <a href="/">돌아가기</a>
+    <div th:each="TransactionDTO : ${totalTransactionDTOList}">
+        <p>일련번호 : <span th:text="${TransactionDTO.uid}"></span></p>
+        <p>날짜: <span th:text="${TransactionDTO.transactionDate}"></span></p>
+        <p>금액: <span th:text="${TransactionDTO.amountTransaction}"></span></p>
+
+        <br>
+    </div>
+</body>
+</html>

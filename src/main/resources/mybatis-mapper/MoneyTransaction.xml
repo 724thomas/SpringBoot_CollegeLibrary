@@ -25,4 +25,13 @@
         where
             studentEmail = #{email}
     </select>
+
+    <select id="selectStudentTotalTransactionByEmail" resultType="com.example.springboot_collegelibrary.dto.MoneyTransactionDTO">
+        select
+            *
+        from
+            moneyTransactionInfo
+        where
+            studentEmail = #{email}
+    </select>
 </mapper>

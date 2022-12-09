@@ -5,6 +5,8 @@ import com.example.springboot_collegelibrary.mapper.MoneyTransactionMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+
 @Repository
 public class MoneyTransactionRepository {
 
@@ -18,5 +20,9 @@ public class MoneyTransactionRepository {
 
     public int selectStudentBalanceWithEmail(String email) {
         return moneyTransactionMapper.selectStudentBalanceWithEmail(email);
+    }
+
+    public ArrayList<MoneyTransactionDTO> selectStudentTotalTransactionByEmail(String email) {
+        return moneyTransactionMapper.selectStudentTotalTransactionByEmail(email);
     }
 }

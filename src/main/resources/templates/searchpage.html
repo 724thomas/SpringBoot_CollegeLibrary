@@ -4,14 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Search</title>
+  <a><span th:text="${email}"></span>님 환영합니다.</a>
   <a href="/logout">Logout</a><br/>
-  <span th:text="${email}"></span>
-
-
-  <a href="/studentHistory">총 대여 내역</a>
+  <br>
+  <a>잔여 포인트 : <span th:text="${balance}"></span></a>
   <a href="/goDeposit">충전하기</a>
   <a href="/goWithdraw">출금하기</a>
-  <a href="/goTransactionHistory">총 충전/출금 내역</a>
+  <a href="/goTotalTransaction">총 충전/출금 내역</a>
+  <br>
+  <a href="/studentHistory">총 대여 내역</a>
 
 
 

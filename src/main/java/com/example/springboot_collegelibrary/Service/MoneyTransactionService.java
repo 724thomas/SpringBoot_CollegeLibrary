@@ -5,6 +5,8 @@ import com.example.springboot_collegelibrary.dto.MoneyTransactionDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 public class MoneyTransactionService {
 
@@ -21,5 +23,9 @@ public class MoneyTransactionService {
 
     public int selectStudentBalanceWithEmail(String email) {
         return moneyTransactionRepository.selectStudentBalanceWithEmail(email);
+    }
+
+    public ArrayList<MoneyTransactionDTO> selectStudentTotalTransactionByEmail(String email) {
+        return moneyTransactionRepository.selectStudentTotalTransactionByEmail(email);
     }
 }

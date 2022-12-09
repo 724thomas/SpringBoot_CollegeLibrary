@@ -2,6 +2,7 @@ package com.example.springboot_collegelibrary.controller;
 
 
 import com.example.springboot_collegelibrary.Service.MoneyTransactionService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +25,7 @@ public class PageController {
         if (session.getAttribute("email")==null) {
             return "login";
         }
-        return "searchpage";
+        return "redirect:/searchPage";
     }
 
     @GetMapping("/signup")
@@ -33,8 +34,10 @@ public class PageController {
     }
 
     @GetMapping("/searchPage")
-    public String search(Model model){
-        model.addAttribute("email", "asd@asd");
+    public String search(Model model, HttpSession session){
+        String userEmail=(String)session.getAttribute("email");
+        model.addAttribute("email", userEmail);
+        model.addAttribute("balance", moneyTransactionService.selectStudentBalanceWithEmail(userEmail));
         return "searchpage";
     }
 
@@ -59,4 +62,10 @@ public class PageController {
         return "withdraw";
     }
 
+    @GetMapping("/goTotalTransaction")
+    public String goTotalTransaction(HttpSession session, Model model){
+        String userEmail=(String)session.getAttribute("email");
+        model.addAttribute("totalTransactionDTOList", moneyTransactionService.selectStudentTotalTransactionByEmail(userEmail));
+        return "studentTotalTransaction";
+    }
 }
