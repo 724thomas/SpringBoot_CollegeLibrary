@@ -1,15 +1,18 @@
 <!-- Create a web page with search function-->
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
+  <meta charset="UTF-8">
   <title>Search</title>
   <a href="/logout">Logout</a><br/>
+  <span th:text="${email}"></span>
 
 
   <a href="/studentHistory">총 대여 내역</a>
   <a href="/goDeposit">충전하기</a>
   <a href="/goWithdraw">출금하기</a>
   <a href="/goTransactionHistory">총 충전/출금 내역</a>
+
 
 
 </head>

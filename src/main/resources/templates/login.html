@@ -130,12 +130,17 @@
             </div>
             <input type="submit" value="로그인">
             <input type="button" onclick="location.href='/signup'" value="회원가입">
-            <input type="button" onclick="location.href='/kakaoLogin'" value="카카오 로그인">
-            <a href="javascript:kakaoLogin()">카카오 로그인</a>
         </form>
-        <form action="/kakaologin" method="post">
-            <input type="button" onclick="kakaoLogin()" name="kakaologin" value="kakao_account">
+        <span th:if="${userId==null}">
+      <a href="https://kauth.kakao.com/oauth/authorize?client_id=71de7b1c8884f8ddbac311f43a3c4204&redirect_uri=http://localhost:8080/login&response_type=code">
+        <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png">
+      </a>
+    </span>
+        <span th:if="${userId!=null}">
+        <form name="Logout" action="http://localhost:8080/logout">
+          <input type="submit" value="로그아웃">
         </form>
+    </span>
     </div>
 </body>
 <script>
@@ -143,9 +148,9 @@
 </script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script>
-    window.Kakao.init("71de7b1c8884f8ddbac311f43a3c4204");
 
     function kakaoLogin(){
+        window.Kakao.init("71de7b1c8884f8ddbac311f43a3c4204");
         window.Kakao.Auth.login({
             scope: 'profile_nickname, account_email',
             success: function(authOb) {
