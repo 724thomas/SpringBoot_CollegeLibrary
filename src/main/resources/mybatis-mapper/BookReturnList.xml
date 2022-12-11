@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.springboot_collegelibrary.mapper.BookReturnMapper">
+    <select id="getBookPriceByBookId" resultType="int" parameterType="String">
+        select
+            bookPrice
+        from
+            book
+        where
+            bookId = #{bookId}
+    </select>
+
+    <select id="getBookDueDateByStudentEmailAndBookId" resultType="String" parameterType="HashMap">
+        select
+            dueDate
+        from
+            borrowedBook
+        where
+            studentEmail = #{studentEmail} and bookId = #{bookId} and returnedDate is null
+    </select>
+
+    <update id="increaseAvailableBookByBookId" parameterType="String">
+        update
+            book
+        set
+            bookAvailable = bookAvailable + 1
+        where
+            bookId = #{bookId}
+    </update>
+
+    <update id="insertBookReturnedDate" parameterType="HashMap">
+        update
+            borrowedBook
+        set
+            returnedDate = #{returnedDate}
+        where
+            studentEmail = #{studentEmail} and bookId = #{bookId} and returnedDate is null
+    </update>
+
+    <update id="updateStudentBalance" parameterType="com.example.springboot_collegelibrary.dto.MoneyTransactionDTO">
+        update
+            student
+        set
+            balance = #{balance}
+        where
+            studentEmail = #{studentEmail}
+    </update>
+
+    <select id="getStudentBalanceByStudentEmail" resultType="int" parameterType="String">
+        select
+            balance
+        from
+            student
+        where
+            studentEmail = #{studentEmail}
+    </select>
+</mapper>

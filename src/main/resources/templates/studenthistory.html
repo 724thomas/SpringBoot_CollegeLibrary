@@ -15,7 +15,7 @@
         <p>책 가격: <span th:text="${BorrowDTO.bookPrice}"></span>원</p>
         <p>대출일자: <span th:text="${BorrowDTO.borrowedDate}"></span></p>
         <p>반납기일: <span th:text="${BorrowDTO.dueDate}"></span></p>
-        <form action="/studentBookReturn" method="post">
+        <form action="/returnBook" method="post">
             <input type="hidden" name="bookId" th:value="${BorrowDTO.bookId}">
             <input type="submit" value="반납하기">
         </form>

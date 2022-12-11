@@ -32,10 +32,4 @@ public class BookDetailController {
         }
         return "bookdetail";
     }
-
-    @PostMapping("/borrowBook")
-    public String borrowBook(@RequestParam String bookId, HttpSession session, Model model){
-        bookBorrowService.userBorrowABook((String) session.getAttribute("email"),bookId);
-        return "redirect:/studentHistory";
-    }
 }

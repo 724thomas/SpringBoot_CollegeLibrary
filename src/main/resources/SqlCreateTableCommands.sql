@@ -38,3 +38,13 @@ create table borrowedbook (
       FOREIGN KEY (bookId) REFERENCES book(bookId)
 );
 
+create table latefees (
+                          studentEmail varchar(255) not null,
+                          bookId varchar(255) not null,
+                          borrowedDate varchar(255),
+                          returnedDate varchar(255),
+                          latefee int,
+
+                          foreign key (studentEmail) references student(studentEmail),
+                          foreign key (bookId) references book(bookId)
+)
