@@ -10,6 +10,7 @@
         where StudentEmail = #{studentEmail}
     </select>
 
+
     <insert id="studentSignUp" parameterType="HashMap">
         insert into student
             (StudentNumber, StudentEmail, StudentPassword, StudentName, StudentPhone, balance, latefee)
