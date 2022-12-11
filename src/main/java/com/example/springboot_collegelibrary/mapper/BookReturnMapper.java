@@ -1,8 +1,6 @@
 package com.example.springboot_collegelibrary.mapper;
 
-import com.example.springboot_collegelibrary.dto.MoneyTransactionDTO;
 import com.example.springboot_collegelibrary.dto.StudentTableDTO;
-import com.example.springboot_collegelibrary.dto.testDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.HashMap;

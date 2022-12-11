@@ -42,7 +42,7 @@ public class MoneyTransactionController {
             System.out.println("MoneyTransactionController.goWithdraw : " + tempDTO.getUid() + " 출금번호입니다.");
             return "redirect:/";
         } else {
-            System.out.println("MoneyTransactionController.goWithdraw : 잔여 포인트가 부족합니다.");
+            System.out.println("MoneyTransactionController.goWithdraw : Not enought Point to Withdraw");
             return "redirect:/goWithdraw";
         }
     }

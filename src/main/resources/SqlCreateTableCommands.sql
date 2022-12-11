@@ -1,3 +1,5 @@
+-- Name of DB = collegelibrary
+
 CREATE TABLE Student (
      studentNumber varchar(255) not null,
      studentEmail varchar(255) not null,

@@ -1,6 +1,8 @@
 package com.example.springboot_collegelibrary.Service;
 
 import com.example.springboot_collegelibrary.Repository.BookBorrowRepository;
+import com.example.springboot_collegelibrary.Repository.BookDetailRepository;
+import com.example.springboot_collegelibrary.Repository.MoneyTransactionRepository;
 import com.example.springboot_collegelibrary.dto.BorrowedBookDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,14 +14,26 @@ public class BookBorrowService {
 
     @Autowired
     BookBorrowRepository bookBorrowRepository;
-
-    public int userBorrowABook(String studentEmail, String bookId){
+    @Autowired
+    BookDetailRepository bookDetailRepository;
+    @Autowired
+    MoneyTransactionRepository moneyTransactionRepository;
+    public boolean userBorrowABook(String studentEmail, String bookId){
         BorrowedBookDTO borrowedBookDTO = new BorrowedBookDTO();
         borrowedBookDTO.setBorrowStudentEmail(studentEmail);
         borrowedBookDTO.setBorrowBookId(bookId);
         bookBorrowRepository.decreaseAvailableBookByBookId(bookId);
-        System.out.println("BookBorrowService.userBorrowABook : Successfully Borrowed The Book");
-        return bookBorrowRepository.userBorrowsBook(borrowedBookDTO);
+
+        int bookPrice= bookDetailRepository.selectBookDetailByBookId(bookId).getBookPrice();
+        int studentBalance = moneyTransactionRepository.selectStudentBalanceWithEmail(studentEmail);
+        if (studentBalance<bookPrice){
+            System.out.println("BookBorrowService.userBorrowABook : Not enough point.");
+            return false;
+        }else{
+            System.out.println("BookBorrowService.userBorrowABook : Successfully Borrowed The Book");
+            bookBorrowRepository.userBorrowsBook(borrowedBookDTO);
+            return true;
+        }
 
     }
 

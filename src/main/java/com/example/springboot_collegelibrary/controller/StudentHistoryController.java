@@ -18,6 +18,7 @@ public class StudentHistoryController {
     public String studentHistory(Model model, HttpSession session){
         model.addAttribute("studentCurrentBorrowDTO",studentHistoryService.getStudentCurrentBorrowList((String)session.getAttribute("email")));
         model.addAttribute("studentHistoryDTO",studentHistoryService.getStudentBorrowedBookHistory((String)session.getAttribute("email")));
+        System.out.println("StudentHistoryController.studentHistory : Returning to studentHistory");
         return "studenthistory";
     }
 }

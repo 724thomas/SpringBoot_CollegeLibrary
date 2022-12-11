@@ -20,14 +20,20 @@ public class BookBorrowReturnController {
     BookReturnService bookReturnService;
 
     @PostMapping("/borrowBook")
-    public String borrowBook(@RequestParam String bookId, HttpSession session, Model model){
-        bookBorrowService.userBorrowABook((String) session.getAttribute("email"),bookId);
-        return "redirect:/studentHistory";
+    public String borrowBook(@RequestParam String bookId, HttpSession session){
+        if (bookBorrowService.userBorrowABook((String) session.getAttribute("email"),bookId)){
+            System.out.println("BookBorrowReturnController.borrowBook : Redirecting to Student History Page");
+            return "redirect:/studentHistory";
+        }else{
+            System.out.println("BookBorrowReturnController.borrowBook : Redirecting to Deposit Page");
+            return "redirect:/goDeposit";
+        }
     }
 
     @PostMapping("/returnBook")
     public String returnBook(@RequestParam String bookId, HttpSession session, Model model){
         bookReturnService.userReturnABook((String) session.getAttribute("email"),bookId);
+        System.out.println("BookBorrowReturnController.returnBook : Redirecting to Student History Page");
         return "redirect:/studentHistory";
     }
 }
