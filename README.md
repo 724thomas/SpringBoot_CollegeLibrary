@@ -1,16 +1,27 @@
 # SpringBoot_CollegeLibrary
 
+
+
 Aim:
+
 대학교에서 쓰는 책 대여 서비스 SpringBoot에서 구현
 
+
+
 Hypothesis:
+
 회원가입, 로그인 가능
+
 로그인 후, 책 검색, 대여, 반납
+
 로그인 후, 포인트 충전, 출금
+
 관리자 모드로 로그인 가능
 
 
+
 Method:
+
 유저는 회원가입/로그인을 할 수 있다.
 유저는 여러개의 책 주문목록을 갖고있다.
 주문목록을 현재 대여중인 책들, 대여했던 책들 순으로 가져온다.
@@ -20,85 +31,137 @@ Method:
 관리자 모드에서 새로운 책 추가, 기존 책 폐기, 책의 내역 확인 할 수 있다.
 
 
-Progress Notes:
-[221202]
-회원가입, 로그인 구현
-
-[221205]
-로그아웃, Ajax를 사용한 책 검색 기능 구현
-
-[221206]
-검색한 책의 상세정보 확인, 학생 책 대여, 대여내역 확인 기능 구현
-
-[221207]
-학생 총 대여내역과, 현재 대여내역을 분리.
-로그인시, 도서관 이용법 팝업창 제작
-
-[221208]
-팝업창(로그인 동안 안보이기 체크기능) 구현
-포인트 충전하기 Kakao API를 이용한 구현 (from 전상수 강사님)
-학생 충전 후, Student, Transaction, PaymentInfo db 업데이트
-변수, 함수 네이밍 수정
-포인트 출금 기능 구현
-다른 컴퓨터에서 사용가능한 SQL문 작성
-
-[221209]
-카카오 로그인 기능 구현
-로그인 후, 학생 현재 포인트 보이기
-
-[221211]
-책 반납, 연체료 구현
-연체료 Table 생성
-간단한 HashMap을 제외한 나머지는 DTO와 Entity로 변경
-함수, 변수 이름 변경
-에러 트래킹용 println 추가
-
 
 Installation:
+
 DBeaver에 collegelibaray DB 생성 후, 
+
 프로젝트 안에 있는 SqlCreateTableCommands.sql , SqlExampleDataInsertion 실행.
 
 
+
+Progress Notes:
+
+[221202]
+
+회원가입, 로그인 구현
+
+
+
+[221205]
+
+로그아웃, Ajax를 사용한 책 검색 기능 구현
+
+
+
+[221206]
+
+검색한 책의 상세정보 확인, 학생 책 대여, 대여내역 확인 기능 구현
+
+
+
+[221207]
+
+학생 총 대여내역과, 현재 대여내역을 분리.
+
+로그인시, 도서관 이용법 팝업창 제작
+
+
+
+[221208]
+
+팝업창(로그인 동안 안보이기 체크기능) 구현
+
+포인트 충전하기 Kakao API를 이용한 구현 (from 전상수 강사님)
+
+학생 충전 후, Student, Transaction, PaymentInfo db 업데이트
+
+변수, 함수 네이밍 수정
+
+포인트 출금 기능 구현
+
+다른 컴퓨터에서 사용가능한 SQL문 작성
+
+
+
+[221209]
+
+카카오 로그인 기능 구현
+
+로그인 후, 학생 현재 포인트 보이기
+
+
+
+[221211]
+
+책 반납, 연체료 구현
+
+연체료 Table 생성
+
+간단한 HashMap을 제외한 나머지는 DTO와 Entity로 변경
+
+함수, 변수 이름 변경
+
+에러 트래킹용 println 추가
+
+
+
 Bibliography:
+
 [Java]
+
 Java controller to html if alert (Tom.C 2022.12.11)
+
 https://stackoverflow.com/questions/74759472/java-controller-to-html-if-alert?noredirect=1#comment131941588_74759472 
 
 Controller에서 자바스크립트 alert를 사용해보자 (Rojae 2020.11.04)
+
 https://redcoder.tistory.com/195 
 
 Face Recognition with JavaCV
+
 https://stackoverflow.com/questions/52691667/facerecognition-with-javacv (Hossein Golshani 2018.10.07)
 
 Computer Vision application (+web interface) for face detection and recognition from database (Kush 2012.03.27)
+
 https://stackoverflow.com/questions/9897601/computer-vision-applicationweb-interface-for-face-detection-and-recognition-f 
 
 Facial Recognition in Java/Processing (TheCodeArtist 2013.09.02)
+
 https://stackoverflow.com/questions/9228732/facial-recognition-in-java-processing/9229054#9229054 
 
 Face Recognition + Attendence Project (Murtaza's workshop 2022.06.11)
+
 https://www.youtube.com/watch?v=sz25xxF_AVE&t=2038s
 
 How to send sms using jsp(동비나 2017.05.07)
+
 https://www.youtube.com/watch?v=3Mj0FgCz6g0&t=42s 
 
 JSP lecture evaluation service development tutorial #9 (동빈나 2018.02.08)
+
 https://www.youtube.com/watch?v=e_XHILt7QUo&t=252s 
 
 AI real time face recognition with Opencv.js (easycoding 2021.02.27)
+
 https://www.youtube.com/watch?v=S21jhMfjBdc
 
 Face API: How to train your app to identify people's faces by name (Ruth 2018.02.26)
+
 https://www.youtube.com/watch?v=WmzrKXWfa2o&t=1274s
 
 Introduction to Computer Vision - Processing Tutorial (TheCodingTrain 2015.07.24)
+
 https://www.youtube.com/watch?v=h8tk0hmWB44&t=1177s
 
 Realtime Face Detection in Java OpenCV(GUI) (Kraskros Tips 2022.08.03)
+
 https://www.youtube.com/watch?v=-5WMXkm-bEE&t=224s
 
 Face Detection Project For beginners (Code Heroku 2020.06.20)
+
 https://www.youtube.com/watch?v=PLKLsPDZ1t0&t=67s
 
 로그인 기능 구현하기 왕기초 (ft. 파이어베이스) (조코딩 2022.07.15)
+
 https://www.youtube.com/watch?v=tPqTE14DEUg
