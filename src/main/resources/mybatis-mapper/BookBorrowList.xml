@@ -16,5 +16,12 @@
         values
             (#{borrowStudentEmail}, #{borrowBookId})
     </insert>
-    
+    <select id="userAlreadyBorrowedBook" resultType="com.example.springboot_collegelibrary.dto.BorrowedBookDTO" parameterType="HashMap">
+        select
+            *
+        from
+            borrowedbook
+        where
+            studentEmail = #{studentEmail} and bookId = #{bookId} and returnedDate is null
+    </select>
 </mapper>

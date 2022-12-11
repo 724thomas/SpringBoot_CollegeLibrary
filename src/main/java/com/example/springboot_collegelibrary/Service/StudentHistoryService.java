@@ -16,8 +16,7 @@ public class StudentHistoryService {
     public ArrayList<StudentHistoryDTO> getStudentBorrowedBookHistory(String studentEmail){
         ArrayList<StudentHistoryDTO> temp = new ArrayList<>();
         for(StudentHistoryDTO dto : studentHistoryRepository.getStudentBorrowedBookHistory(studentEmail)){
-            if(dto.getReturnedDate() == null){
-                dto.setReturnedDate("대여 중");
+            if(dto.getReturnedDate() != null){
                 temp.add(dto);
             }
         }
@@ -27,7 +26,8 @@ public class StudentHistoryService {
     public ArrayList<StudentHistoryDTO> getStudentCurrentBorrowList(String studentEmail){
         ArrayList<StudentHistoryDTO> temp = new ArrayList<>();
         for(StudentHistoryDTO dto : studentHistoryRepository.getStudentBorrowedBookHistory(studentEmail)){
-            if(dto.getReturnedDate() != null){
+            if(dto.getReturnedDate() == null){
+                dto.setReturnedDate("대여 중");
                 temp.add(dto);
             }
         }

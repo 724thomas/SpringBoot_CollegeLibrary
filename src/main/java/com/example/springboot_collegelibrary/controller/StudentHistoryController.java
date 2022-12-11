@@ -16,8 +16,8 @@ public class StudentHistoryController {
 
     @GetMapping("/studentHistory")
     public String studentHistory(Model model, HttpSession session){
-        model.addAttribute("studentHistoryDTO",studentHistoryService.getStudentBorrowedBookHistory((String)session.getAttribute("email")));
         model.addAttribute("studentCurrentBorrowDTO",studentHistoryService.getStudentCurrentBorrowList((String)session.getAttribute("email")));
+        model.addAttribute("studentHistoryDTO",studentHistoryService.getStudentBorrowedBookHistory((String)session.getAttribute("email")));
         return "studenthistory";
     }
 }

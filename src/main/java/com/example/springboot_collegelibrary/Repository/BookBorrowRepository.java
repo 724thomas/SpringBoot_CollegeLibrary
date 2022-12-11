@@ -5,6 +5,8 @@ import com.example.springboot_collegelibrary.mapper.BookBorrowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
+
 @Repository
 public class BookBorrowRepository {
 
@@ -17,5 +19,9 @@ public class BookBorrowRepository {
 
     public int userBorrowsBook(BorrowedBookDTO borrowedBookDTO){
         return bookBorrowMapper.userBorrowsBook(borrowedBookDTO);
+    }
+
+    public boolean userAlreadyBorrowedBook(HashMap<String,String> emailAndBookId){
+        return bookBorrowMapper.userAlreadyBorrowedBook(emailAndBookId)!=null;
     }
 }

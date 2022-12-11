@@ -18,7 +18,6 @@ public class SearchController {
     @GetMapping("/searchs")
     public ArrayList<HashMap<String,String>> searchBook(@RequestParam String keyword){
         try{
-            System.out.println(keyword);
             return searchService.searchBookByKeyword(keyword);
         }catch (Exception e){
             e.printStackTrace();

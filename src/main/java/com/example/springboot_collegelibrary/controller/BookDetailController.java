@@ -22,14 +22,20 @@ public class BookDetailController {
     BookBorrowService bookBorrowService;
 
     @GetMapping("/book")
-    public String book(String bookId, Model model){
+    public String book(String bookId, Model model, HttpSession session){
         model.addAttribute("BookDetailDTO", bookDetailService.selectBookDetailByBookId(bookId));
+        boolean AlreadyBorrowed = bookBorrowService.userAlreadyBorrowedBook((String) session.getAttribute("email"),bookId);
+        if (AlreadyBorrowed){
+            model.addAttribute("borrowedAlready", 1);
+        }else{
+            model.addAttribute("borrowedAlready", 0);
+        }
         return "bookdetail";
     }
 
-    @PostMapping("/bookdetail")
-    public String borrowBook(@RequestParam String bookId, HttpSession session){
+    @PostMapping("/borrowBook")
+    public String borrowBook(@RequestParam String bookId, HttpSession session, Model model){
         bookBorrowService.userBorrowABook((String) session.getAttribute("email"),bookId);
-        return "redirect:/";
+        return "redirect:/studentHistory";
     }
 }
