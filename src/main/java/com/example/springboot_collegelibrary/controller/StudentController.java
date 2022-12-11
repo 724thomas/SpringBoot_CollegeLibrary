@@ -20,9 +20,9 @@ public class StudentController {
         if (session.getAttribute("email")!=null){
             return "redirect:/searchPage";
         }
-        if(studentService.correctEmailOrPassword(studentEmail,studentPassword)){ //
-            System.out.println("StudentController.login : Login Success");
+        if(studentService.correctEmailOrPasswordA(studentEmail,studentPassword)){ //
             session.setAttribute("email",studentEmail);
+            System.out.println("StudentController.login : Login Success");
             System.out.println("StudentController.login : Redirecting to searchPage");
             return "redirect:/searchPage";
         }

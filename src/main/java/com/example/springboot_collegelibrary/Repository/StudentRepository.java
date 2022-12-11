@@ -1,5 +1,6 @@
 package com.example.springboot_collegelibrary.Repository;
 
+import com.example.springboot_collegelibrary.dto.StudentTableDTO;
 import com.example.springboot_collegelibrary.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,7 @@ public class StudentRepository {
 
     @Autowired
     StudentMapper studentMapper;
+
 
     public HashMap<String,String> selectStudentByEmail(String studentEmail){
         return studentMapper.selectStudentByEmail(studentEmail);

@@ -13,30 +13,34 @@ public class StudentService {
     @Autowired
     StudentRepository studentRepository;
 
-    public boolean duplicateEmail(String email){
+    public boolean isEmailDuplicate(String email){
         if (studentRepository.selectStudentByEmail(email)!=null){
             return true;
         }
         return false;
     }
 
-    public boolean correctEmailOrPassword(String email, String password){
-        HashMap<String, String> tempHash = studentRepository.selectStudentByEmail(email);
-        if (tempHash==null){
+    public boolean correctEmailOrPasswordA(String email, String password){
+        HashMap<String,String> selectedStudentEntity = studentRepository.selectStudentByEmail(email);
+        if (selectedStudentEntity==null){
+            System.out.println("StudentService.correctEmailOrPassword : User not found");
             return false;
         }
-        if (tempHash.get("studentEmail").equals(email) && tempHash.get("studentPassword").equals(password)){
-            System.out.println("StudentService.correctEmailOrPassword : 로그인 성공");
+        else if (selectedStudentEntity.get("studentEmail").equals(email) && selectedStudentEntity.get("studentPassword").equals(password)){
+            System.out.println("StudentService.correctEmailOrPassword : Correct Email and Password.");
             return true;
         }
-        System.out.println("StudentService.correctEmailOrPassword : 로그인 실패");
-        return false;
+        else{
+            System.out.println("StudentService.correctEmailOrPassword :  Wrong Email and Password.");
+            return false;
+        }
     }
 
-    public boolean studentSignUp(HashMap<String, String> newStudent){
-        if (!duplicateEmail(newStudent.get("studentEmail"))){
+
+    public boolean studentSignUp(HashMap<String,String> student){
+        if (!isEmailDuplicate(student.get("studentEmail"))){
             System.out.println("StudentService.studentSignUp : 회원가입 완료");
-            studentRepository.studentSignUp(newStudent);
+            studentRepository.studentSignUp(student);
             return true;
         }
         System.out.println("StudentService.studentSignUp : 회원가입 실패. 중복 아이디");

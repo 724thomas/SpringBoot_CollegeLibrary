@@ -1,5 +1,6 @@
 package com.example.springboot_collegelibrary.mapper;
 
+import com.example.springboot_collegelibrary.entity.StudentTableEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.HashMap;
@@ -8,5 +9,5 @@ import java.util.HashMap;
 public interface StudentMapper {
     public HashMap<String,String> selectStudentByEmail(String studentEmail);
 
-    public int studentSignUp(HashMap<String, String> newStudent);
+    public int studentSignUp(HashMap<String, String> student);
 }

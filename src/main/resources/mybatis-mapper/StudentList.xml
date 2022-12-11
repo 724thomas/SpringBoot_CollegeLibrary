@@ -15,6 +15,5 @@
             (StudentNumber, StudentEmail, StudentPassword, StudentName, StudentPhone, balance, latefee)
         values
             (#{studentNumber}, #{studentEmail}, #{studentPassword}, #{studentName}, #{studentPhone},0 ,0)
-
     </insert>
 </mapper>
