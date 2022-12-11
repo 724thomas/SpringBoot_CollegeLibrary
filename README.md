@@ -2,18 +2,18 @@
 
 
 
-Aim:<br>
+<h3>Aim:</h3>
 대학교에서 쓰는 책 대여 서비스 SpringBoot에서 구현<br>
 <br>
 <br>
-Hypothesis:<br>
+<h3>Hypothesis:</h3>
 회원가입, 로그인 가능<br>
 로그인 후, 책 검색, 대여, 반납<br>
 로그인 후, 포인트 충전, 출금<br>
 관리자 모드로 로그인 가능<br>
 <br>
 <br>
-Method:<br>
+<h3>Method:</h3>
 유저는 회원가입/로그인을 할 수 있다.<br>
 유저는 여러개의 책 주문목록을 갖고있다.<br>
 주문목록을 현재 대여중인 책들, 대여했던 책들 순으로 가져온다.<br>
@@ -23,12 +23,12 @@ Method:<br>
 관리자 모드에서 새로운 책 추가, 기존 책 폐기, 책의 내역 확인 할 수 있다.<br>
 <br>
 <br>
-Installation:<br>
+<h3>Installation:</h3>
 DBeaver에 collegelibaray DB 생성 후, <br>
 프로젝트 안에 있는 SqlCreateTableCommands.sql , SqlExampleDataInsertion 실행.<br>
 <br>
 <br>
-Progress Notes:<br>
+<h3>Progress Notes:</h3>
 [221202]<br>
 회원가입, 로그인 구현<br>
 [221205]<br>
@@ -56,7 +56,7 @@ Progress Notes:<br>
 에러 트래킹용 println 추가<br>
 <br>
 <br>
-Bibliography:<br>
+<h3>Bibliography:</h3>
 [Java]<br>
 Java controller to html if alert (Tom.C 2022.12.11)<br>
 https://stackoverflow.com/questions/74759472/java-controller-to-html-if-alert?noredirect=1#comment131941588_74759472 <br>
