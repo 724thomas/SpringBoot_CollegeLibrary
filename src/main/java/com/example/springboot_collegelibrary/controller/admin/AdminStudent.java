@@ -23,6 +23,7 @@ public class AdminStudent {
 
     @GetMapping("/studentDelete")
     public String studentDelete(@RequestParam String studentEmail){
+        // ** 학생을 삭제하게 되면, 학생이 대여한 책들도 모두 삭제되고, 학생의 포인트도 삭제되므로 문제가 생긴다. 일단 html단에서 버튼을 제외했다. **
         System.out.println("AdminStudent.studentDelete : Student(" + studentEmail + ") Deleted");
         return "redirect:/admin/studentManagement";
     }
