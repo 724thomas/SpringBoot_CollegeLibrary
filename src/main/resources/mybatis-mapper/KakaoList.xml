@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.springboot_collegelibrary.mapper.KakaoMapper">
+    <insert id="insertKakaoSignup" parameterType="com.example.springboot_collegelibrary.dto.StudentTableDTO">
+        INSERT INTO student
+            (studentNumber, studentEmail, studentPassword, studentName, studentPhone, balance, latefee)
+        VALUES
+            (#{studentNumber}, #{studentEmail}, #{studentPassword}, #{studentName}, #{studentPhone}, #{balance}, #{latefee})
+    </insert>
+
+    <select id="selectStudentByEmail" parameterType="String" resultType="com.example.springboot_collegelibrary.entity.StudentTableEntity">
+        SELECT
+            *
+        FROM
+            student
+        WHERE
+            studentEmail = #{studentEmail}
+    </select>
+</mapper>

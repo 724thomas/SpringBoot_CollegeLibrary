@@ -8,19 +8,19 @@ public class StudentTableDTO {
     private String studentName;
     private String studentPhone;
     private int Balance;
-    private int lateFee;
+    private int latefee;
 
     public StudentTableDTO() {
     }
 
-    public StudentTableDTO(String studentNumber, String studentEmail, String studentPassword, String studentName, String studentPhone, int balance, int lateFee) {
+    public StudentTableDTO(String studentNumber, String studentEmail, String studentPassword, String studentName, String studentPhone, int balance, int latefee) {
         this.studentNumber = studentNumber;
         this.studentEmail = studentEmail;
         this.studentPassword = studentPassword;
         this.studentName = studentName;
         this.studentPhone = studentPhone;
         this.Balance = balance;
-        this.lateFee = lateFee;
+        this.latefee = latefee;
     }
 
     public String getStudentNumber() {
@@ -71,11 +71,11 @@ public class StudentTableDTO {
         Balance = balance;
     }
 
-    public int getLateFee() {
-        return lateFee;
+    public int getLatefee() {
+        return latefee;
     }
 
-    public void setLateFee(int lateFee) {
-        this.lateFee = lateFee;
+    public void setLatefee(int latefee) {
+        this.latefee = latefee;
     }
 }

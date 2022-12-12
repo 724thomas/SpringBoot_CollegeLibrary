@@ -31,11 +31,6 @@ public class PageController {
         return "signup";
     }
 
-    @GetMapping("/kakaoSignup")
-    public String kakaoSignup(){
-        return "kakaoSignup";
-    }
-
 
     @GetMapping("/searchPage")
     public String search(Model model, HttpSession session){

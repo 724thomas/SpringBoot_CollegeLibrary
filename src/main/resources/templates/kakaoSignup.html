@@ -107,7 +107,7 @@
 <body>
 <!-- Body of Form starts -->
 <div class="container">
-  <form method="post" autocomplete="on" action="signup">
+  <form method="post" autocomplete="on" action="kakaoSignup">
 
     <div class="box">
       <h1 style="font-size: 35px;color: white;">회원가입</h1>
@@ -126,6 +126,17 @@
       <div class="clr"></div>
     </div>
     <!--studentNumber-->
+
+    <!---Email ID---->
+    <div class="box">
+      <label for="email" class="fl fontLabel"> 이메일: </label>
+      <div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+      <div class="fr">
+        <h1><a><span th:text="${email}"></span></a></h1>
+      </div>
+      <div class="clr"></div>
+    </div>
+    <!--Email ID----->
 
     <!---Password------>
     <div class="box">

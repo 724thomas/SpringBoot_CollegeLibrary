@@ -1,9 +1,8 @@
 package com.example.springboot_collegelibrary.Kakao;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -29,7 +28,7 @@ public class HomeController {
             session.setAttribute("accessToken", accessToken);
         }
         mav.addObject("userId", userInfo.get("email"));
-        mav.setViewName("redirect:/");
+        mav.setViewName("redirect:/kakaoSignup");
         return mav;
     }
 
@@ -42,4 +41,6 @@ public class HomeController {
         mav.setViewName("login");
         return mav;
     }
+
+
 }
