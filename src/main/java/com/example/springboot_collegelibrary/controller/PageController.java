@@ -31,6 +31,12 @@ public class PageController {
         return "signup";
     }
 
+    @GetMapping("/kakaoSignup")
+    public String kakaoSignup(){
+        return "kakaoSignup";
+    }
+
+
     @GetMapping("/searchPage")
     public String search(Model model, HttpSession session){
         String userEmail=(String)session.getAttribute("email");
@@ -80,6 +86,9 @@ public class PageController {
     public String adminMenu(){
         return "adminMenu";
     }
+
+
+
 
 
     @Autowired
