@@ -55,4 +55,20 @@
         where
             studentEmail = #{studentEmail}
     </select>
+
+    <insert id="insertLatefees" parameterType="com.example.springboot_collegelibrary.entity.LateFeesTableEntity">
+        insert into latefees
+            (studentEmail,bookId,borrowedDate,returnedDate,latefee)
+        values
+            (#{studentEmail}, #{bookId}, #{borrowedDate}m, #{returnedDate}, #{latefee})
+    </insert>
+
+    <select id="selectBorrowedBookByStudentEmailAndBookId" resultType="com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity" parameterType="HashMap">
+        select
+            *
+        from
+            borrowedBook
+        where
+            studentEmail = #{studentEmail} and bookId = #{bookId} and returnedDate is null
+    </select>
 </mapper>

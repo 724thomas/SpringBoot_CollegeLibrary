@@ -1,7 +1,10 @@
 package com.example.springboot_collegelibrary.Service;
 
 import com.example.springboot_collegelibrary.Repository.BookReturnRepository;
+import com.example.springboot_collegelibrary.dto.BorrowedBookDTO;
 import com.example.springboot_collegelibrary.dto.StudentTableDTO;
+import com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity;
+import com.example.springboot_collegelibrary.entity.LateFeesTableEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +46,11 @@ public class BookReturnService {
     }
 
     public int calculateReturnPoint(String studentEmail, String bookId){
+        int lateFee = calculateLatefee(studentEmail,bookId);
+        int bookPrice = bookReturnRepository.getBookPriceByBookId(bookId);
+        return bookPrice - lateFee;
+    }
+    public int calculateLatefee(String studentEmail, String bookId){
         HashMap<String,String> studentEmailAndBookId = new HashMap<>();
         studentEmailAndBookId.put("studentEmail",studentEmail);
         studentEmailAndBookId.put("bookId",bookId);
@@ -57,19 +65,37 @@ public class BookReturnService {
         else {
             lateFee= min(dateDifference * (int)(bookPrice * 0.1),bookPrice);
         }
-        return bookPrice - lateFee;
+        return lateFee;
     }
-
     public String getCurrentDate(){
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-dd");
         return currentDate.format(formatter);
     }
-
     public int calculateDateDifference(String startDate, String endDate){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate localDate1 = LocalDate.parse(startDate, formatter);
         LocalDate localDate2 = LocalDate.parse(endDate, formatter);
         return localDate1.until(localDate2).getDays();
+    }
+
+    //Todo : 연체료가 발생했을때 LatefeeTable에 db가 들어가도록 수정해야됨.
+    public int insertLatefees(String studentEmail, String bookId){
+        HashMap<String,String> studentEmailAndBookId = new HashMap<>();
+        studentEmailAndBookId.put("studentEmail",studentEmail);
+        studentEmailAndBookId.put("bookId",bookId);
+
+        BorrowedBookTableEntity borrowedBookTableEntity = bookReturnRepository.selectBorrowedBookByStudentEmailAndBookId(studentEmailAndBookId);
+        String currentDate = getCurrentDate();
+        int lateFee = calculateLatefee(studentEmail,bookId);
+        if (lateFee == 0){
+            return 0;
+        }
+        else {
+            String borrowedDate = borrowedBookTableEntity.getBorrowedDate();
+            String returnedDate = currentDate;
+            LateFeesTableEntity lateFeesTableEntity = new LateFeesTableEntity(studentEmail,bookId,borrowedDate,returnedDate,lateFee);
+            return bookReturnRepository.insertLatefees(lateFeesTableEntity);
+        }
     }
 }

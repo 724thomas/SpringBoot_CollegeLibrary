@@ -1,6 +1,8 @@
 package com.example.springboot_collegelibrary.Repository;
 
 import com.example.springboot_collegelibrary.dto.StudentTableDTO;
+import com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity;
+import com.example.springboot_collegelibrary.entity.LateFeesTableEntity;
 import com.example.springboot_collegelibrary.mapper.BookReturnMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,5 +37,13 @@ public class BookReturnRepository {
 
     public int getStudentBalanceByStudentEmail(String studentEmail){
         return bookReturnMapper.getStudentBalanceByStudentEmail(studentEmail);
+    }
+
+    public int insertLatefees(LateFeesTableEntity lateFeesTableEntity){
+        return bookReturnMapper.insertLatefees(lateFeesTableEntity);
+    }
+
+    public BorrowedBookTableEntity selectBorrowedBookByStudentEmailAndBookId(HashMap<String,String> studentEmailAndBookId){
+        return bookReturnMapper.getBorrowedBookByStudentEmailAndBookId(studentEmailAndBookId);
     }
 }
