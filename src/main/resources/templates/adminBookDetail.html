@@ -30,14 +30,28 @@
 
   </div>
   <p><h2>현재 대여중</h2>
-  <div th:each="BorrowedBookTableEntity : ${BorrowedBookList}">
-    <p>학생 이메일 : <span th:text="${BorrowedBookTableEntity.studentEmail}"></span></p>
-    <p>대여 날짜 : <span th:text="${BorrowedBookTableEntity.borrowedDate}"></span></p>
-    <p>반납 기한 : <span th:text="${BorrowedBookTableEntity.dueDate}"></span></p>
+  <div th:each="BorrowingBookTableEntity : ${BorrowingBookList}">
+    <p>학생 이메일 : <span th:text="${BorrowingBookTableEntity.studentEmail}"></span></p>
+    <p>대여 날짜 : <span th:text="${BorrowingBookTableEntity.borrowedDate}"></span></p>
+    <p>반납 기한 : <span th:text="${BorrowingBookTableEntity.dueDate}"></span></p>
 <!--    <form action="/returnBook" method="post">-->
 <!--      <input type="hidden" name="bookId" th:value="${BorrowDTO.bookId}">-->
 <!--      <input type="submit" value="반납하기">-->
 <!--    </form>-->
+
+    <br>
+  </div>
+
+  </div>
+  <p><h2>과거 대여내역</h2>
+  <div th:each="BorrowedBookTableEntity : ${BorrowedBookList}">
+    <p>학생 이메일 : <span th:text="${BorrowedBookTableEntity.studentEmail}"></span></p>
+    <p>대여 날짜 : <span th:text="${BorrowedBookTableEntity.borrowedDate}"></span></p>
+    <p>반납 기한 : <span th:text="${BorrowedBookTableEntity.dueDate}"></span></p>
+    <!--    <form action="/returnBook" method="post">-->
+    <!--      <input type="hidden" name="bookId" th:value="${BorrowDTO.bookId}">-->
+    <!--      <input type="submit" value="반납하기">-->
+    <!--    </form>-->
 
     <br>
   </div>

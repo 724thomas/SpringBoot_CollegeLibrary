@@ -17,7 +17,8 @@ public class AdminBookController {
     @GetMapping("/admin/adminBookDetail")
     public String adminBookDetail(@RequestParam String bookId, Model model){
         model.addAttribute("BookDetailEntity" , adminService.getBookDetailByBookId(bookId));
-        model.addAttribute("BorrowedBookList" , adminService.getBorroedBookByBookId(bookId));
+        model.addAttribute("BorrowingBookList" , adminService.getBorrowingBookByBookId(bookId));
+        model.addAttribute("BorrowedBookList" , adminService.getBorrowedBookByBookId(bookId));
         model.addAttribute("LatefeeList" , adminService.getLatefeesByBookId(bookId));
         return "adminBookDetail";
     }

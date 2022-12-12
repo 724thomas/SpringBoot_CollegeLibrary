@@ -35,7 +35,10 @@ public class AdminRepository {
     public BookTableEntity getBookDetailByBookId(String bookId){
         return adminCommandMapper.getBookDetailByBookId(bookId);
     }
-    public ArrayList<BorrowedBookTableEntity> getBorrowedBookByBookId(String bookId){
+    public ArrayList<BorrowedBookTableEntity> getBorrowingBookByBookId(String bookId){
+        return adminCommandMapper.getBorrowingBookByBookId(bookId);
+    }
+public ArrayList<BorrowedBookTableEntity> getBorrowedBookByBookId(String bookId){
         return adminCommandMapper.getBorrowedBookByBookId(bookId);
     }
 

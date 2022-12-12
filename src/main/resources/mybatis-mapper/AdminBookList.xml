@@ -22,13 +22,22 @@
             bookId = #{bookId}
     </select>
 
+    <select id = "getBorrowingBookByBookId" resultType="com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity" parameterType="String">
+        select
+            *
+        from
+            borrowedbook
+        where
+            bookId = #{bookId} and returnedDate is null
+    </select>
+
     <select id = "getBorrowedBookByBookId" resultType="com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity" parameterType="String">
         select
             *
         from
             borrowedbook
         where
-            bookId = #{bookId}
+            bookId = #{bookId} and returnedDate is not null
     </select>
 
     <select id="getLatefeesByBookId" resultType="com.example.springboot_collegelibrary.entity.LateFeesTableEntity" parameterType="String">

@@ -18,6 +18,7 @@ public interface AdminCommandMapper {
 //    Book Management---------------------------------------------------------------------------------------------
     public ArrayList<BookTableEntity> searchBookDetailByKeyword(String keyword);
     public BookTableEntity getBookDetailByBookId(String bookId);
+    public ArrayList<BorrowedBookTableEntity> getBorrowingBookByBookId(String bookId);
     public ArrayList<BorrowedBookTableEntity> getBorrowedBookByBookId(String bookId);
     public ArrayList<LateFeesTableEntity> getLatefeesByBookId(String bookId);
 }

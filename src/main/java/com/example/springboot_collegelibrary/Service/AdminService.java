@@ -34,7 +34,10 @@ public class AdminService {
     public BookTableEntity getBookDetailByBookId(String bookId){
         return adminRepository.getBookDetailByBookId(bookId);
     }
-    public ArrayList<BorrowedBookTableEntity> getBorroedBookByBookId(String bookId){
+    public ArrayList<BorrowedBookTableEntity> getBorrowingBookByBookId(String bookId){
+        return adminRepository.getBorrowingBookByBookId(bookId);
+    }
+    public ArrayList<BorrowedBookTableEntity> getBorrowedBookByBookId(String bookId){
         return adminRepository.getBorrowedBookByBookId(bookId);
     }
     public ArrayList<LateFeesTableEntity> getLatefeesByBookId(String bookId){
