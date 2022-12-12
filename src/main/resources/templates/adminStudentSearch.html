@@ -37,7 +37,8 @@
               values+="<br>"+result[i]["studentPhone"];
               values+="<br>"+result[i]["balance"];
               values+="<br>"+result[i]["latefee"];
-              values+="<br><button onclick='location.href=\"/admin/studentDelete?studentEmail="+studentEmail+"\"'>학생 삭제</button>";
+              // values+="<br><button onclick='location.href=\"/admin/studentDelete?studentEmail="+studentEmail+"\"'>학생 삭제</button>";
+              // ** 학생을 삭제하게 되면, 학생이 대여한 책들도 모두 삭제되고, 학생의 포인트도 삭제되므로 문제가 생긴다. 일단 제외 **
               values+="<br><button onclick='location.href=\"/admin/studentDetail?studentEmail="+studentEmail+"\"'>상세 페이지</button>";
 
               values+="<br>";
