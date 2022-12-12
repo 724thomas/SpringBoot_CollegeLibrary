@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>총 내역</title>
+    <a href="/admin/studentManagement">돌아가기</a></p>
+</head>
+<body>
+<p><h1>총 내역</h1>
+<br>
+<p><h2>현재 대여중</h2>
+<div th:each="BorrowDTO : ${studentCurrentBorrowDTO}">
+    <p>책 일련번호: <span th:text="${BorrowDTO.bookId}"></span></p>
+    <p>책 이름: <span th:text="${BorrowDTO.bookTitle}"></span></p>
+    <p>책 저자: <span th:text="${BorrowDTO.bookAuthor}"></span></p>
+    <p>책 가격: <span th:text="${BorrowDTO.bookPrice}"></span>원</p>
+    <p>대출일자: <span th:text="${BorrowDTO.borrowedDate}"></span></p>
+    <p>반납기일: <span th:text="${BorrowDTO.dueDate}"></span></p>
+    <form action="/returnBook" method="post">
+        <input type="hidden" name="bookId" th:value="${BorrowDTO.bookId}">
+        <input type="submit" value="반납하기">
+    </form>
+
+    <br>
+</div>
+
+<p><h2>과거 대여내역</h2>
+<div th:each="HistoryDTO : ${studentHistoryDTO}">
+    <p>책 일련번호: <span th:text="${HistoryDTO.bookId}"></span></p>
+    <p>책 이름: <span th:text="${HistoryDTO.bookTitle}"></span></p>
+    <p>책 저자: <span th:text="${HistoryDTO.bookAuthor}"></span></p>
+    <p>책 가격: <span th:text="${HistoryDTO.bookPrice}"></span>원</p>
+    <p>대출일자: <span th:text="${HistoryDTO.borrowedDate}"></span></p>
+    <p>반납기일: <span th:text="${HistoryDTO.dueDate}"></span></p>
+    <p>반납일자: <span th:text="${HistoryDTO.returnedDate}"></span></p>
+    <br>
+</div>
+
+<p><h2>총 충전, 출금내역</h2></p>
+<a href="/">돌아가기</a>
+<div th:each="TransactionDTO : ${totalTransactionDTOList}">
+    <p>일련번호 : <span th:text="${TransactionDTO.uid}"></span></p>
+    <p>날짜: <span th:text="${TransactionDTO.transactionDate}"></span></p>
+    <p>금액: <span th:text="${TransactionDTO.amountTransaction}"></span></p>
+    <br>
+</div>
+
+</body>
+</html>
