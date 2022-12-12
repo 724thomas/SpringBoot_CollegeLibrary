@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>책 상세내용</title>
+</head>
+<body>
+  <div>
+    <p><h2>도서 상세보기</h2></p>
+    <tr>
+      <td>책 등록ID: </td>
+      <td th:text="${BookDetailEntity.getBookId()}"></td>
+      </br>
+      <td>책 제목: </td>
+      <td th:text="${BookDetailEntity.getBookTitle()}"></td>
+      </br>
+      <td>책 저자: </td>
+      <td th:text="${BookDetailEntity.getBookAuthor()}"></td>
+      </br>
+      <td>책 총 수량: </td>
+      <td th:text="${BookDetailEntity.getBookQuantity()}"></td>
+      </br>
+      <td>책 남은 수량: </td>
+      <td th:text="${BookDetailEntity.getBookAvailable()}"></td>
+      </br>
+      <td>책 가격: </td>
+      <td th:text="${BookDetailEntity.getBookPrice()}"></td>
+    </tr>
+  </div>
+
+  </div>
+  <p><h2>현재 대여중</h2>
+  <div th:each="BorrowedBookTableEntity : ${BorrowedBookList}">
+    <p>학생 이메일 : <span th:text="${BorrowedBookTableEntity.studentEmail}"></span></p>
+    <p>대여 날짜 : <span th:text="${BorrowedBookTableEntity.borrowedDate}"></span></p>
+    <p>반납 기한 : <span th:text="${BorrowedBookTableEntity.dueDate}"></span></p>
+<!--    <form action="/returnBook" method="post">-->
+<!--      <input type="hidden" name="bookId" th:value="${BorrowDTO.bookId}">-->
+<!--      <input type="submit" value="반납하기">-->
+<!--    </form>-->
+
+    <br>
+  </div>
+
+  </div>
+  <p><h2>연체료 납부 내역</h2>
+  <div th:each="LatefeeTableEntity : ${LatefeeList}">
+    <p>학생 이메일 : <span th:text="${LatefeeTableEntity.studentEmail}"></span></p>
+    <p>대여 날짜 : <span th:text="${LatefeeTableEntity.borrowedDate}"></span></p>
+    <p>반납 날짜 : <span th:text="${LatefeeTableEntity.returnedDate}"></span></p>
+    <p>연체료 : <span th:text="${LatefeeTableEntity.latefee}"></span></p>
+    <!--    <form action="/returnBook" method="post">-->
+    <!--      <input type="hidden" name="bookId" th:value="${BorrowDTO.bookId}">-->
+    <!--      <input type="submit" value="반납하기">-->
+    <!--    </form>-->
+    <br>
+  </div>
+
+
+
+
+</body>
+</html>

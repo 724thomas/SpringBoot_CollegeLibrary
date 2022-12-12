@@ -1,6 +1,9 @@
 package com.example.springboot_collegelibrary.Repository;
 
 
+import com.example.springboot_collegelibrary.entity.BookTableEntity;
+import com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity;
+import com.example.springboot_collegelibrary.entity.LateFeesTableEntity;
 import com.example.springboot_collegelibrary.entity.StudentTableEntity;
 import com.example.springboot_collegelibrary.mapper.AdminCommandMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +16,7 @@ public class AdminRepository {
 
     @Autowired
     AdminCommandMapper adminCommandMapper;
-
+// Student Management---------------------------------------------------------------------------------------------
     public ArrayList<StudentTableEntity> getAllStudents(){
         return adminCommandMapper.getAllStudents();
     }
@@ -22,6 +25,22 @@ public class AdminRepository {
     }
     public int deleteStudentByStudentEmail(String studentEmail){
         return adminCommandMapper.deleteStudentByStudentEmail(studentEmail);
+    }
+
+
+// Book Management---------------------------------------------------------------------------------------------
+    public ArrayList<BookTableEntity> searchBookDetailByKeyword(String keyword){
+        return adminCommandMapper.searchBookDetailByKeyword(keyword);
+    }
+    public BookTableEntity getBookDetailByBookId(String bookId){
+        return adminCommandMapper.getBookDetailByBookId(bookId);
+    }
+    public ArrayList<BorrowedBookTableEntity> getBorrowedBookByBookId(String bookId){
+        return adminCommandMapper.getBorrowedBookByBookId(bookId);
+    }
+
+    public ArrayList<LateFeesTableEntity> getLatefeesByBookId(String bookId){
+        return adminCommandMapper.getLatefeesByBookId(bookId);
     }
 
 }

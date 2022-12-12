@@ -21,7 +21,7 @@ public class AdminController {
 
     @GetMapping("/bookManagement")
     public String bookManagement(){
-        return "bookManagement";
+        return "adminBookSearch";
     }
 
     @GetMapping("/borrowManagement")
