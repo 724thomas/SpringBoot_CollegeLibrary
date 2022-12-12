@@ -29,7 +29,7 @@ public class HomeController {
             session.setAttribute("accessToken", accessToken);
         }
         mav.addObject("userId", userInfo.get("email"));
-        mav.setViewName("searchpage");
+        mav.setViewName("redirect:/");
         return mav;
     }
 
