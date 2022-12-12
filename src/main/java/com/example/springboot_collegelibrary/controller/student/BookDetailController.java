@@ -1,4 +1,4 @@
-package com.example.springboot_collegelibrary.controller;
+package com.example.springboot_collegelibrary.controller.student;
 
 import com.example.springboot_collegelibrary.Service.BookBorrowService;
 import com.example.springboot_collegelibrary.Service.BookDetailService;

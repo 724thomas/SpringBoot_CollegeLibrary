@@ -1,4 +1,4 @@
-package com.example.springboot_collegelibrary.controller;
+package com.example.springboot_collegelibrary.controller.student;
 
 import com.example.springboot_collegelibrary.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +17,9 @@ public class StudentController {
 
     @PostMapping("/")
     public String login(@RequestParam String studentEmail, String studentPassword, HttpSession session){
+        if (studentEmail.equals("admin@admin")){
+            return "redirect:/admin/adminMenu";
+        }
         if (session.getAttribute("email")!=null){
             return "redirect:/searchPage";
         }

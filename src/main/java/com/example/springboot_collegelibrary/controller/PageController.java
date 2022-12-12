@@ -73,6 +73,15 @@ public class PageController {
         return "studentTotalTransaction";
     }
 
+
+
+
+    @GetMapping ("/adminMenu")
+    public String adminMenu(){
+        return "adminMenu";
+    }
+
+
     @Autowired
     MoneyTransactionRepository moneyTransactionRepository;
     @GetMapping("/testPoint")

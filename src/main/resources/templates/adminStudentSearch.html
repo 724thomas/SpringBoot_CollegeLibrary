@@ -1,0 +1,68 @@
+<!-- Create a web page with search function-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Search</title>
+  <a><span th:text="${email}"></span> 관리자님 환영합니다.</a>
+  <br>
+  <a href="/admin/adminMenu">뒤로가기</a>
+
+
+
+</head>
+
+<script>
+  var popup=localStorage.getItem('popup');
+  console.log(popup);
+  if(popup !== 'dontshow'){
+    window.open("/instructionpopup", "instruction", "width=800, height=500");
+  }
+
+
+  function search() {
+    let obj=document.getElementById("keyword").value;
+    const httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = () =>{
+      if (httpRequest.readyState === XMLHttpRequest.DONE){
+        if (httpRequest.status===200) {
+          const result = httpRequest.response;
+          var values="";
+          if(result!==null){
+            for (var i=0; i<result.length; i++){
+              var studentEmail = result[i]["studentEmail"];
+              values+="<br>"+result[i]["studentNumber"];
+              values+="<br>"+result[i]["studentEmail"];
+              values+="<br>"+result[i]["studentName"];
+              values+="<br>"+result[i]["studentPhone"];
+              values+="<br>"+result[i]["balance"];
+              values+="<br>"+result[i]["latefee"];
+              values+="<br><button onclick='location.href=\"/admin/studentDelete?studentEmail="+studentEmail+"\"'>학생 삭제</button>";
+
+              values+="<br>";
+
+            }
+            document.getElementById("ajaxTable").innerHTML=values;
+          }
+        }else {
+          alert('서버에러');
+        }
+      }
+    };
+    httpRequest.open('GET', '/admin/studentSearch?keyword='+obj);
+    httpRequest.responseType="json";
+    httpRequest.send();
+  }
+</script>
+
+<body>
+<h1>SEARCH</h1>
+<input class="" id="keyword" name="keyword" onkeyup="search();" type="text" size="20">
+<button onclick="search();" type="button">Search</button>
+</body>
+<div  id="ajaxTable">
+</div>
+
+<footer class="main__nav__next">
+</footer>
+</html>

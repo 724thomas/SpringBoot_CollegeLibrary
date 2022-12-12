@@ -7,8 +7,8 @@ public class BorrowedBookTableEntity {
     private String returnedDate;
     private String dueDate;
 
-    public BorrowedBookTableEntity(String studentEmail) {
-        this.studentEmail = studentEmail;
+
+    public BorrowedBookTableEntity() {
     }
 
     public BorrowedBookTableEntity(String studentEmail, String bookId, String borrowedDate, String returnedDate, String dueDate) {

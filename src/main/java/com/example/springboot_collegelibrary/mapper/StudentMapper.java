@@ -1,6 +1,5 @@
 package com.example.springboot_collegelibrary.mapper;
 
-import com.example.springboot_collegelibrary.entity.StudentTableEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.HashMap;

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.springboot_collegelibrary.mapper.AdminCommandMapper">
+<!--    Student Management-->
+    <select id="getAllStudents" resultType="com.example.springboot_collegelibrary.entity.StudentTableEntity">
+        select
+            *
+        from
+            student
+    </select>
+
+    <select id="searchStudentByKeyword" resultType="com.example.springboot_collegelibrary.entity.StudentTableEntity" parameterType="String">
+        select
+            *
+        from
+            student
+        where
+            (studentNumber like  CONCAT('%', #{keyword}, '%')
+            or studentName like CONCAT('%', #{keyword}, '%')
+            or studentEmail like CONCAT('%', #{keyword}, '%')
+            or studentPhone like CONCAT('%', #{keyword}, '%'))
+            and studentEmail != 'admin@admin'
+    </select>
+
+    <delete id="deleteStudentByStudentEmail" parameterType="String">
+        delete from
+            student
+        where
+            studentEmail = #{studentEmail}
+    </delete>
+</mapper>

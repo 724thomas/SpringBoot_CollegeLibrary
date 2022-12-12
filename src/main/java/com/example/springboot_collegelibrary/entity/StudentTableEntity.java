@@ -1,6 +1,7 @@
 package com.example.springboot_collegelibrary.entity;
 
 public class StudentTableEntity {
+
     private String studentNumber;
     private String studentEmail;
     private String studentPassword;

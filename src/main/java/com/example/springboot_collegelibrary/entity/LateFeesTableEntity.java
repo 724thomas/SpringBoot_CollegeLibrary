@@ -1,16 +1,17 @@
 package com.example.springboot_collegelibrary.entity;
 
 public class LateFeesTableEntity {
+
     private String studentEmail;
     private String bookId;
     private String borrowedDate;
     private String returnedDate;
-    private int latefee;
+    private String latefee;
 
     public LateFeesTableEntity() {
     }
 
-    public LateFeesTableEntity(String studentEmail, String bookId, String borrowedDate, String returnedDate, int latefee) {
+    public LateFeesTableEntity(String studentEmail, String bookId, String borrowedDate, String returnedDate, String latefee) {
         this.studentEmail = studentEmail;
         this.bookId = bookId;
         this.borrowedDate = borrowedDate;
@@ -34,7 +35,7 @@ public class LateFeesTableEntity {
         return returnedDate;
     }
 
-    public int getLatefee() {
+    public String getLatefee() {
         return latefee;
     }
 }
