@@ -27,10 +27,8 @@ public class BookDetailController {
         boolean AlreadyBorrowed = bookBorrowService.userAlreadyBorrowedBook((String) session.getAttribute("email"),bookId);
         if (AlreadyBorrowed){
             model.addAttribute("borrowedAlready", 1);
-            System.out.println("BookDetailController.book : Book Already Borrowed");
         }else{
             model.addAttribute("borrowedAlready", 0);
-            System.out.println("BookDetailController.book : Book Not Yet Borrowed");
         }
         return "bookdetail";
     }

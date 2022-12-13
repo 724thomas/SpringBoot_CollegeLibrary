@@ -23,10 +23,6 @@ public class MoneyTransactionController {
     public String depositPoint(@ModelAttribute MoneyTransactionDTO moneyTransactionDTO, HttpSession session) {
         moneyTransactionDTO.setEmail(String.valueOf(session.getAttribute("email")));
         moneyTransactionService.moneyTransaction(moneyTransactionDTO);
-        System.out.println("MoneyTransactionService.moneyTransaction : 잔여 포인트가 부족합니다.");
-        System.out.println("MoneyTransactionController.depositPoint : " + moneyTransactionDTO.getEmail() + " 님의 결제가 완료되었습니다.");
-        System.out.println("MoneyTransactionController.depositPoint : " + moneyTransactionDTO.getAmountTransaction() + " 포인트가 충전되었습니다.");
-        System.out.println("MoneyTransactionController.depositPoint : " + moneyTransactionDTO.getUid() + " 결제번호입니다.");
         return "redirect:/";
     }
 
@@ -37,12 +33,8 @@ public class MoneyTransactionController {
         tempDTO.setAmountTransaction(-withdrawAmount);
         tempDTO.setUid("randomWithdrawId");
         if (moneyTransactionService.moneyTransaction(tempDTO).equals("Success")) {
-            System.out.println("MoneyTransactionController.goWithdraw : " + tempDTO.getEmail() + " 님의 출금이 완료되었습니다.");
-            System.out.println("MoneyTransactionController.goWithdraw : " + tempDTO.getAmountTransaction() + " 포인트가 출금되었습니다.");
-            System.out.println("MoneyTransactionController.goWithdraw : " + tempDTO.getUid() + " 출금번호입니다.");
             return "redirect:/";
         } else {
-            System.out.println("MoneyTransactionController.goWithdraw : Not enought Point to Withdraw");
             return "redirect:/goWithdraw";
         }
     }

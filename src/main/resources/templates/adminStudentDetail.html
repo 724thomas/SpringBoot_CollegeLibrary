@@ -37,7 +37,6 @@
 </div>
 
 <p><h2>총 충전, 출금내역</h2></p>
-<a href="/">돌아가기</a>
 <div th:each="TransactionDTO : ${totalTransactionDTOList}">
     <p>일련번호 : <span th:text="${TransactionDTO.uid}"></span></p>
     <p>날짜: <span th:text="${TransactionDTO.transactionDate}"></span></p>

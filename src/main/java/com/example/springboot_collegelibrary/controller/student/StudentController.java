@@ -1,6 +1,7 @@
 package com.example.springboot_collegelibrary.controller.student;
 
 import com.example.springboot_collegelibrary.Service.StudentService;
+import com.example.springboot_collegelibrary.aop.SkipLoginCheck;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,9 +16,11 @@ public class StudentController {
     @Autowired
     StudentService studentService;
 
+    @SkipLoginCheck
     @PostMapping("/")
     public String login(@RequestParam String studentEmail, String studentPassword, HttpSession session){
         if (studentEmail.equals("admin@admin")){
+            session.setAttribute("email",studentEmail);
             return "redirect:/admin/adminMenu";
         }
         if (session.getAttribute("email")!=null){
@@ -25,22 +28,17 @@ public class StudentController {
         }
         if(studentService.correctEmailOrPasswordA(studentEmail,studentPassword)){ //
             session.setAttribute("email",studentEmail);
-            System.out.println("StudentController.login : Login Success");
-            System.out.println("StudentController.login : Redirecting to searchPage");
             return "redirect:/searchPage";
         }
-        System.out.println("StudentController.login : Login Failed. Redirecting to loginPage");
         return "redirect:/login";
     }
 
-
+    @SkipLoginCheck
     @PostMapping("/signup")
     public String signup(@RequestParam HashMap<String, String> student) {
         if (studentService.studentSignUp(student)){
-            System.out.println("StudentController.signup : Signup Successful. Redirecting to loginPage");
             return "redirect:/";
         }else{
-            System.out.println("StudentController.signup : Signup Failed. Redirecting to Signup Page");
             return "redirect:/signup";
         }
     }

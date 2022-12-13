@@ -7,6 +7,9 @@
 <body>
   <div>
     <p><h2>도서 상세보기</h2></p>
+    <a href="/admin/bookManagement">뒤로가기</a>
+    <br>
+    </br>
     <tr>
       <td>책 등록ID: </td>
       <td th:text="${BookDetailEntity.getBookId()}"></td>
@@ -25,6 +28,21 @@
       </br>
       <td>책 가격: </td>
       <td th:text="${BookDetailEntity.getBookPrice()}"></td>
+      </br>
+      <a href="/testPoint">테스트 포인트 충전: 5000원</a>
+      <a href="/testPoint">테스트 포인트 충전: 5000원</a>
+      <br>
+      <form action="/admin/adminBookDetail/decrease" method="post">
+        <input type="hidden" name="bookId" th:value="${BookDetailEntity.getBookId()}">
+        <input type="submit" value="총 수량 -1">
+      </form>
+      <form action="/admin/adminBookDetail/increase" method="post">
+        <input type="hidden" name="bookId" th:value="${BookDetailEntity.getBookId()}">
+        <input type="submit" value="총 수량 +1">
+      </form>
+
+
+
     </tr>
   </div>
 

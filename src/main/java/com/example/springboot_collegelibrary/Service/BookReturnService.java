@@ -23,11 +23,18 @@ public class BookReturnService {
     BookReturnRepository bookReturnRepository;
     public int userReturnABook(String studentEmail, String bookId){
         int returnedStudentPoint = calculateReturnPoint(studentEmail,bookId);// 학생의 반환될 포인트
+        System.out.println("BookReturnService.userReturnABook : " + returnedStudentPoint + " points returned.");
         bookReturnRepository.increaseAvailableBookByBookId(bookId); // 책의 대여가능 수량을 1 증가.
+        System.out.println("BookReturnService.userReturnABook : Increase Book Available by 1.");
+        insertLatefees(studentEmail,bookId); // 연체료 테이블에 연체료 정보를 저장.
+        System.out.println("BookReturnService.userReturnABook : Insert into latefees table if exists.");
         insertBookReturnedDate(studentEmail, bookId); // 학생의 반날일자 추가
-        updateStudentBalance(studentEmail,returnedStudentPoint); // student.balance + returnPoint
+        System.out.println("BookReturnService.userReturnABook : Added returned Date");
+        updateStudentBalance(studentEmail,returnedStudentPoint); // 학생의 포인트 업데이트
+        System.out.println("BookReturnService.userReturnABook : Update Student balance.");
         return 0;
     }
+
 
     public int updateStudentBalance(String studentEmail, int returnedPoint){
         StudentTableDTO studentTableDTO = new StudentTableDTO();
@@ -36,15 +43,6 @@ public class BookReturnService {
         studentTableDTO.setBalance(balance);
         return bookReturnRepository.updateStudentBalance(studentTableDTO);
     }
-
-    public int insertBookReturnedDate(String studentEmail, String bookId){
-        HashMap<String,String> emailBookIdAndReturnedDate = new HashMap<>();
-        emailBookIdAndReturnedDate.put("studentEmail",studentEmail);
-        emailBookIdAndReturnedDate.put("bookId",bookId);
-        emailBookIdAndReturnedDate.put("returnedDate", getCurrentDate());
-        return bookReturnRepository.insertBookReturnedDate(emailBookIdAndReturnedDate);
-    }
-
     public int calculateReturnPoint(String studentEmail, String bookId){
         int lateFee = calculateLatefee(studentEmail,bookId);
         int bookPrice = bookReturnRepository.getBookPriceByBookId(bookId);
@@ -77,6 +75,15 @@ public class BookReturnService {
         LocalDate localDate1 = LocalDate.parse(startDate, formatter);
         LocalDate localDate2 = LocalDate.parse(endDate, formatter);
         return localDate1.until(localDate2).getDays();
+    }
+
+
+    public int insertBookReturnedDate(String studentEmail, String bookId){
+        HashMap<String,String> emailBookIdAndReturnedDate = new HashMap<>();
+        emailBookIdAndReturnedDate.put("studentEmail",studentEmail);
+        emailBookIdAndReturnedDate.put("bookId",bookId);
+        emailBookIdAndReturnedDate.put("returnedDate", getCurrentDate());
+        return bookReturnRepository.insertBookReturnedDate(emailBookIdAndReturnedDate);
     }
 
     //Todo : 연체료가 발생했을때 LatefeeTable에 db가 들어가도록 수정해야됨.

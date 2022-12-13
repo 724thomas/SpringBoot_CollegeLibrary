@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,5 +22,15 @@ public class AdminBookController {
         model.addAttribute("BorrowedBookList" , adminService.getBorrowedBookByBookId(bookId));
         model.addAttribute("LatefeeList" , adminService.getLatefeesByBookId(bookId));
         return "adminBookDetail";
+    }
+
+    @PostMapping("/admin/adminBookDetail/decrease")
+    public String decreaseBookQuantityBy1(@RequestParam String bookId){
+        return "redirect:/admin/adminBookDetail?bookId=" + bookId;
+    }
+
+    @PostMapping("/admin/adminBookDetail/increase")
+    public String increaseBookQuantityBy1(@RequestParam String bookId){
+        return "redirect:/admin/adminBookDetail?bookId=" + bookId;
     }
 }

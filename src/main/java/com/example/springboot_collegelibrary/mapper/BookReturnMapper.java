@@ -17,5 +17,5 @@ public interface BookReturnMapper {
     public int updateStudentBalance(StudentTableDTO studentTableDTO);
     public int getStudentBalanceByStudentEmail(String studentEmail);
     public int insertLatefees(LateFeesTableEntity lateFeesTableEntity);
-    public BorrowedBookTableEntity getBorrowedBookByStudentEmailAndBookId(HashMap<String,String> studentEmailAndBookId);
+    public BorrowedBookTableEntity selectBorrowedBookByStudentEmailAndBookId(HashMap<String,String> studentEmailAndBookId);
 }

@@ -60,7 +60,7 @@
         insert into latefees
             (studentEmail,bookId,borrowedDate,returnedDate,latefee)
         values
-            (#{studentEmail}, #{bookId}, #{borrowedDate}m, #{returnedDate}, #{latefee})
+            (#{studentEmail}, #{bookId}, #{borrowedDate}, #{returnedDate}, #{latefee})
     </insert>
 
     <select id="selectBorrowedBookByStudentEmailAndBookId" resultType="com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity" parameterType="HashMap">

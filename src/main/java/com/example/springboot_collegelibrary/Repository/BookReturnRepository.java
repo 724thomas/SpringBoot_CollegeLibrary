@@ -44,6 +44,6 @@ public class BookReturnRepository {
     }
 
     public BorrowedBookTableEntity selectBorrowedBookByStudentEmailAndBookId(HashMap<String,String> studentEmailAndBookId){
-        return bookReturnMapper.getBorrowedBookByStudentEmailAndBookId(studentEmailAndBookId);
+        return bookReturnMapper.selectBorrowedBookByStudentEmailAndBookId(studentEmailAndBookId);
     }
 }
