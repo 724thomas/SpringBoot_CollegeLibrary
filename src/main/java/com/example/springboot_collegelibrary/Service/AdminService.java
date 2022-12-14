@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Service
 public class AdminService {
@@ -52,5 +53,20 @@ public class AdminService {
     }
     public int decreaseTotalQuantityOfBook(String bookId){
         return adminRepository.decreaseTotalQuantityOfBook(bookId);
+    }
+    public int insertNewBook(HashMap<String, String> newBookInfo){
+        String bookId = newBookInfo.get("bookId");
+        String bookTitle = newBookInfo.get("bookTitle");
+        String bookAuthor = newBookInfo.get("bookAuthor");
+        int bookQuantity =Integer.parseInt( newBookInfo.get("bookQuantity") );
+        int bookAvailable =Integer.parseInt( newBookInfo.get("bookQuantity") );
+        int bookPrice =Integer.parseInt( newBookInfo.get("bookPrice") );
+        BookTableEntity bookTableEntity = new BookTableEntity(bookId, bookTitle, bookAuthor, bookQuantity, bookAvailable, bookPrice);
+        if (getBookDetailByBookId(newBookInfo.get("bookId")) != null){
+            return 0;
+        }else{
+            adminRepository.insertNewBook(bookTableEntity);
+            return 1;
+        }
     }
 }

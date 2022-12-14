@@ -68,7 +68,12 @@
             bookId = #{bookId} and bookAvailable>0
     </update>
 
-
+    <insert id="insertNewBook" parameterType="com.example.springboot_collegelibrary.entity.BookTableEntity">
+        insert into book
+            (bookId, bookTitle, bookAuthor, bookQuantity, bookAvailable,bookPrice)
+        values
+            (#{bookId}, #{bookTitle}, #{bookAuthor}, #{bookQuantity}, #{bookAvailable}, #{bookPrice})
+    </insert>
 
 
 </mapper>

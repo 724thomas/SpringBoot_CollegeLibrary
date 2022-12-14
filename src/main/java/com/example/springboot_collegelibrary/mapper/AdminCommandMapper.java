@@ -24,4 +24,5 @@ public interface AdminCommandMapper {
     public ArrayList<LateFeesTableEntity> getLatefeesByBookId(String bookId);
     public int increaseTotalQuantityOfBook(String bookId);
     public int decreaseTotalQuantityOfBook(String bookId);
+    public int insertNewBook(BookTableEntity bookTableEntity);
 }

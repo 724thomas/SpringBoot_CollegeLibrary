@@ -26,7 +26,7 @@ public class AdminController {
 
     @GetMapping("/borrowManagement")
     public String borrowManagement(){
-        return "borrowManagement";
+        return "adminBorrowManagement";
     }
 
     @GetMapping("/returnManagement")

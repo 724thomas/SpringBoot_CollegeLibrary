@@ -1,6 +1,7 @@
 package com.example.springboot_collegelibrary.controller.admin;
 
 import com.example.springboot_collegelibrary.Service.AdminService;
+import com.example.springboot_collegelibrary.entity.BookTableEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.awt.print.Book;
+import java.util.HashMap;
 
 @Controller
 public class AdminBookController {
@@ -34,5 +38,23 @@ public class AdminBookController {
     public String increaseBookQuantityBy1(@RequestParam String bookId){
         adminService.increaseTotalQuantityOfBook(bookId);
         return "redirect:/admin/adminBookDetail?bookId=" + bookId;
+    }
+
+    @PostMapping("/admin/bookManagement/bookAdd")
+    public String addBook(@RequestParam HashMap<String,String> newBookInfo, Model model){
+        if (adminService.insertNewBook(newBookInfo)==1){
+            System.out.println("Insert new book successfully");
+            return "redirect:/admin/adminBookDetail?bookId=" + newBookInfo.get("bookId");
+        }else{
+            System.out.println("Already Exists");
+            model.addAttribute("BookAlreadyExists", "이미 등록되어 있는 책입니다.");
+            return "adminBookAdd";
+        }
+
+    }
+
+    @GetMapping("/admin/bookManagement/bookAdd")
+    public String addBook(){
+        return "adminBookAdd";
     }
 }

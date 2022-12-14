@@ -53,4 +53,7 @@ public ArrayList<BorrowedBookTableEntity> getBorrowedBookByBookId(String bookId)
     public int decreaseTotalQuantityOfBook(String bookId){
         return adminCommandMapper.decreaseTotalQuantityOfBook(bookId);
     }
+    public int insertNewBook(BookTableEntity bookTableEntity){
+        return adminCommandMapper.insertNewBook(bookTableEntity);
+    }
 }

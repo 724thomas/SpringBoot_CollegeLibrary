@@ -1,6 +1,8 @@
 package com.example.springboot_collegelibrary.aop;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
@@ -10,6 +12,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
+
+import static jdk.nashorn.internal.objects.Global.print;
 
 @Component
 @Aspect
@@ -35,6 +39,12 @@ public class AdminAOP {
     public Object MethodRunCheck(ProceedingJoinPoint joinPoint) throws Throwable{
         System.out.println(joinPoint.getSignature().toString().replace("com.example.springboot_collegelibrary.","") + " : Run Success");
         return joinPoint.proceed();
+    }
+
+    @AfterReturning(value = "execution(* com.example.springboot_collegelibrary.controller..*(..))", returning = "returnValue")
+    public void writeSuccessLog(JoinPoint joinPoint, Object returnValue) throws RuntimeException {
+        System.out.println("Returning to : " + returnValue);
+        System.out.println("--------------------------------------------------");
     }
 }
 
