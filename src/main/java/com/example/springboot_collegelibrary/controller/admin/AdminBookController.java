@@ -26,11 +26,13 @@ public class AdminBookController {
 
     @PostMapping("/admin/adminBookDetail/decrease")
     public String decreaseBookQuantityBy1(@RequestParam String bookId){
+        adminService.decreaseTotalQuantityOfBook(bookId);
         return "redirect:/admin/adminBookDetail?bookId=" + bookId;
     }
 
     @PostMapping("/admin/adminBookDetail/increase")
     public String increaseBookQuantityBy1(@RequestParam String bookId){
+        adminService.increaseTotalQuantityOfBook(bookId);
         return "redirect:/admin/adminBookDetail?bookId=" + bookId;
     }
 }

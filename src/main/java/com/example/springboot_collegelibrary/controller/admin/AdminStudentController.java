@@ -29,6 +29,7 @@ public class AdminStudentController {
 
     @GetMapping("/studentDetail")
     public String studentDetail(@RequestParam String studentEmail, Model model){
+        model.addAttribute("studentInfo", adminService.selectStudentByEmail(studentEmail));
         model.addAttribute("studentCurrentBorrowDTO",studentHistoryService.getStudentCurrentBorrowList(studentEmail));
         model.addAttribute("studentHistoryDTO",studentHistoryService.getStudentBorrowedBookHistory(studentEmail));
         model.addAttribute("totalTransactionDTOList", moneyTransactionService.selectStudentTotalTransactionByEmail(studentEmail));

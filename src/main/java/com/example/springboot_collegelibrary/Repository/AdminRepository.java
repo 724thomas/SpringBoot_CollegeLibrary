@@ -26,6 +26,9 @@ public class AdminRepository {
     public int deleteStudentByStudentEmail(String studentEmail){
         return adminCommandMapper.deleteStudentByStudentEmail(studentEmail);
     }
+    public StudentTableEntity selectStudentByEmail(String studentEmail0){
+        return adminCommandMapper.selectStudentByEmail(studentEmail0);
+    }
 
 
 // Book Management---------------------------------------------------------------------------------------------
@@ -41,9 +44,13 @@ public class AdminRepository {
 public ArrayList<BorrowedBookTableEntity> getBorrowedBookByBookId(String bookId){
         return adminCommandMapper.getBorrowedBookByBookId(bookId);
     }
-
     public ArrayList<LateFeesTableEntity> getLatefeesByBookId(String bookId){
         return adminCommandMapper.getLatefeesByBookId(bookId);
     }
-
+    public int increaseTotalQuantityOfBook(String bookId){
+        return adminCommandMapper.increaseTotalQuantityOfBook(bookId);
+    }
+    public int decreaseTotalQuantityOfBook(String bookId){
+        return adminCommandMapper.decreaseTotalQuantityOfBook(bookId);
+    }
 }

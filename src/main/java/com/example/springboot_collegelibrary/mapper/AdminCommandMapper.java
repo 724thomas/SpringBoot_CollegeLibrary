@@ -14,6 +14,7 @@ public interface AdminCommandMapper {
     public ArrayList<StudentTableEntity> getAllStudents();
     public ArrayList<StudentTableEntity> searchStudentByKeyword(String keyword);
     public int deleteStudentByStudentEmail(String studentEmail);
+    public StudentTableEntity selectStudentByEmail(String studentEmail0);
 
 //    Book Management---------------------------------------------------------------------------------------------
     public ArrayList<BookTableEntity> searchBookDetailByKeyword(String keyword);
@@ -21,4 +22,6 @@ public interface AdminCommandMapper {
     public ArrayList<BorrowedBookTableEntity> getBorrowingBookByBookId(String bookId);
     public ArrayList<BorrowedBookTableEntity> getBorrowedBookByBookId(String bookId);
     public ArrayList<LateFeesTableEntity> getLatefeesByBookId(String bookId);
+    public int increaseTotalQuantityOfBook(String bookId);
+    public int decreaseTotalQuantityOfBook(String bookId);
 }

@@ -49,4 +49,26 @@
             bookId = #{bookId}
     </select>
 
+    <update id="increaseTotalQuantityOfBook" parameterType="String">
+        update
+            book
+        set
+            bookQuantity = bookQuantity + 1,
+            bookAvailable = bookAvailable + 1
+        where
+            bookId = #{bookId}
+    </update>
+    <update id="decreaseTotalQuantityOfBook" parameterType="String">
+        update
+            book
+        set
+            bookQuantity = bookQuantity - 1,
+            bookAvailable= bookAvailable -1
+        where
+            bookId = #{bookId} and bookAvailable>0
+    </update>
+
+
+
+
 </mapper>

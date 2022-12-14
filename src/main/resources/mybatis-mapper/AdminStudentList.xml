@@ -29,4 +29,13 @@
         where
             studentEmail = #{studentEmail}
     </delete>
+
+    <select id="selectStudentByEmail" resultType="com.example.springboot_collegelibrary.entity.StudentTableEntity" parameterType="String">
+        select
+            *
+        from
+            student
+        where
+            studentEmail = #{studentEmail}
+    </select>
 </mapper>

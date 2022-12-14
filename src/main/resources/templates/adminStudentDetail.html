@@ -2,12 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>총 내역</title>
+    <title>학생 상세보기</title>
     <a href="/admin/studentManagement">돌아가기</a></p>
 </head>
 <body>
-<p><h1>총 내역</h1>
-<br>
+<p><h1><span th:text="${studentInfo.studentName}"></span> 학생</h1>
+<div th:each="Student : ${studentInfo}">
+    <p>학번 : <span th:text="${Student.studentNumber}"></span></p>
+    <p>이메일 : <span th:text="${Student.studentEmail}"></span></p>
+    <p>연락처 : <span th:text="${Student.studentPhone}"></span></p>
+    <p>포인트 : <span th:text="${Student.balance}"></span></p>
+    <p>연체료 : <span th:text="${Student.latefee}"></span></p>
+
+    <br>
+</div>
+
+
 <p><h2>현재 대여중</h2>
 <div th:each="BorrowDTO : ${studentCurrentBorrowDTO}">
     <p>책 일련번호: <span th:text="${BorrowDTO.bookId}"></span></p>
@@ -23,6 +33,7 @@
 
     <br>
 </div>
+
 
 <p><h2>과거 대여내역</h2>
 <div th:each="HistoryDTO : ${studentHistoryDTO}">

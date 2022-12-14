@@ -27,6 +27,10 @@ public class AdminService {
         return adminRepository.deleteStudentByStudentEmail(studentEmail);
     }
 
+    public StudentTableEntity selectStudentByEmail(String studentEmail0){
+        return adminRepository.selectStudentByEmail(studentEmail0);
+    }
+
     // Book Management---------------------------------------------------------------------------------------------
     public ArrayList<BookTableEntity> searchBookByKeyword(String keyword){
         return adminRepository.searchBookDetailByKeyword(keyword);
@@ -42,5 +46,11 @@ public class AdminService {
     }
     public ArrayList<LateFeesTableEntity> getLatefeesByBookId(String bookId){
         return adminRepository.getLatefeesByBookId(bookId);
+    }
+    public int increaseTotalQuantityOfBook(String bookId){
+        return adminRepository.increaseTotalQuantityOfBook(bookId);
+    }
+    public int decreaseTotalQuantityOfBook(String bookId){
+        return adminRepository.decreaseTotalQuantityOfBook(bookId);
     }
 }
