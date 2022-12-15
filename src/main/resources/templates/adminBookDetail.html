@@ -46,47 +46,54 @@
     </tr>
   </div>
 
-  </div>
-  <p><h2>현재 대여중</h2>
-  <div th:each="BorrowingBookTableEntity : ${BorrowingBookList}">
-    <p>학생 이메일 : <span th:text="${BorrowingBookTableEntity.studentEmail}"></span></p>
-    <p>대여 날짜 : <span th:text="${BorrowingBookTableEntity.borrowedDate}"></span></p>
-    <p>반납 기한 : <span th:text="${BorrowingBookTableEntity.dueDate}"></span></p>
-<!--    <form action="/returnBook" method="post">-->
-<!--      <input type="hidden" name="bookId" th:value="${BorrowDTO.bookId}">-->
-<!--      <input type="submit" value="반납하기">-->
-<!--    </form>-->
-
+  <h1>현재 책 대여중인 학생</h1>
+  <table border="1">
+    <tr>
+      <th>학생 이메일</th>
+      <th>빌린 날짜</th>
+      <th>반납 기일</th>
+    </tr>
+    <tr th:each="BorrowingBookTableEntity : ${BorrowingBookList}">
+      <td th:text="${BorrowingBookTableEntity.studentEmail}"></td>
+      <td th:text="${BorrowingBookTableEntity.borrowedDate}"></td>
+      <td th:text="${BorrowingBookTableEntity.dueDate}"></td>
+    </tr>
     <br>
-  </div>
+  </table>
 
-  </div>
-  <p><h2>과거 대여내역</h2>
-  <div th:each="BorrowedBookTableEntity : ${BorrowedBookList}">
-    <p>학생 이메일 : <span th:text="${BorrowedBookTableEntity.studentEmail}"></span></p>
-    <p>대여 날짜 : <span th:text="${BorrowedBookTableEntity.borrowedDate}"></span></p>
-    <p>반납 기한 : <span th:text="${BorrowedBookTableEntity.dueDate}"></span></p>
-    <!--    <form action="/returnBook" method="post">-->
-    <!--      <input type="hidden" name="bookId" th:value="${BorrowDTO.bookId}">-->
-    <!--      <input type="submit" value="반납하기">-->
-    <!--    </form>-->
-
+  <h1>과거 책 대여했던 학생</h1>
+  <table border="1">
+    <tr>
+      <th>학생 이메일</th>
+      <th>빌린 날짜</th>
+      <th>반납 기일</th>
+    </tr>
+    <tr th:each="BorrowedBookTableEntity : ${BorrowedBookList}">
+      <td th:text="${BorrowedBookTableEntity.studentEmail}"></td>
+      <td th:text="${BorrowedBookTableEntity.borrowedDate}"></td>
+      <td th:text="${BorrowedBookTableEntity.dueDate}"></td>
+    </tr>
     <br>
-  </div>
+  </table>
 
-  </div>
-  <p><h2>연체료 납부 내역</h2>
-  <div th:each="LatefeeTableEntity : ${LatefeeList}">
-    <p>학생 이메일 : <span th:text="${LatefeeTableEntity.studentEmail}"></span></p>
-    <p>대여 날짜 : <span th:text="${LatefeeTableEntity.borrowedDate}"></span></p>
-    <p>반납 날짜 : <span th:text="${LatefeeTableEntity.returnedDate}"></span></p>
-    <p>연체료 : <span th:text="${LatefeeTableEntity.latefee}"></span></p>
-    <!--    <form action="/returnBook" method="post">-->
-    <!--      <input type="hidden" name="bookId" th:value="${BorrowDTO.bookId}">-->
-    <!--      <input type="submit" value="반납하기">-->
-    <!--    </form>-->
+  <h1>책 연체료 납부 내역</h1>
+  <table border="1">
+    <tr>
+      <th>학생 이메일</th>
+      <th>빌린 날짜</th>
+      <th>반납 날짜</th>
+      <th>연체료</th>
+    </tr>
+    <tr th:each="LatefeeTableEntity : ${LatefeeList}">
+      <td th:text="${LatefeeTableEntity.studentEmail}"></td>
+      <td th:text="${LatefeeTableEntity.borrowedDate}"></td>
+      <td th:text="${LatefeeTableEntity.dueDate}"></td>
+      <td th:text="${LatefeeTableEntity.latefee}"></td>
+    </tr>
     <br>
-  </div>
+  </table>
+
+
 
 
 

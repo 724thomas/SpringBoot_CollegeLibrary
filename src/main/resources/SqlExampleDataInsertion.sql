@@ -14,4 +14,11 @@ values
     ("ODFJ209","이펙티브 자바","조슈아 블로크","12","12",32400),
     ("FHA01IF","토비의 스프링 3.1 세트 - 전2권","이일민","5","5",67500)
 
+insert into collegelibrary.student
+(studentNumber,studentEmail,studentPassword,studentName,studentPhone,balance,latefee)
+values
+    ("111111",test1@test.com,test1,Test1Name,010-1234-5555,0,0),
+    ("222222",test2@test.com,test2,Test2Name,010-1234-6666,0,0),
+    ("333333",test3@test.com,test3,Test3Name,010-1234-7777,0,0),
+    ("444444",test4@test.com,test4,Test4Name,010-1234-8888,0,0)
 
