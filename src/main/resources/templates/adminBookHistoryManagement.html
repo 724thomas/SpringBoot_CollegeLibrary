@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>대여중인 책 목록</title>
+    <a href="/admin/adminMenu">돌아가기</a></p>
+</head>
+<body>
+    <h1>연체중인 책 목록</h1>
+    <table border="1">
+        <tr>
+            <th>책 번호</th>
+            <th>책 이름</th>
+            <th>책 저자</th>
+            <th>빌린 날짜</th>
+            <th>반납 예정일</th>
+            <th>학생 번호</th>
+            <th>학생 이메일</th>
+            <th>학생 이름</th>
+            <th>학생 연락처</th>
+        </tr>
+        <tr th:each="book : ${overdueBookList}">
+            <td th:text="${book.bookId}"></td>
+            <td th:text="${book.bookTitle}"></td>
+            <td th:text="${book.bookAuthor}"></td>
+            <td th:text="${book.borrowedDate}"></td>
+            <td th:text="${book.dueDate}"></td>
+            <td th:text="${book.studentNumber}"></td>
+            <td th:text="${book.studentEmail}"></td>
+            <td th:text="${book.studentName}"></td>
+            <td th:text="${book.studentPhone}"></td>
+        </tr>
+        <br>
+    </table>
+
+
+    <h1>대여중인 책 목록</h1>
+    <table border="1">
+        <tr>
+            <th>책 번호</th>
+            <th>책 이름</th>
+            <th>책 저자</th>
+            <th>빌린 날짜</th>
+            <th>반납 예정일</th>
+            <th>학생 번호</th>
+            <th>학생 이메일</th>
+            <th>학생 이름</th>
+            <th>학생 연락처</th>
+        </tr>
+        <tr th:each="book : ${borrowBookList}">
+            <td th:text="${book.bookId}"></td>
+            <td th:text="${book.bookTitle}"></td>
+            <td th:text="${book.bookAuthor}"></td>
+            <td th:text="${book.borrowedDate}"></td>
+            <td th:text="${book.dueDate}"></td>
+            <td th:text="${book.studentNumber}"></td>
+            <td th:text="${book.studentEmail}"></td>
+            <td th:text="${book.studentName}"></td>
+            <td th:text="${book.studentPhone}"></td>
+        </tr>
+    <br>
+    </table>
+
+    <h1>과거대여 책 목록</h1>
+    <table border="1">
+        <tr>
+            <th>책 번호</th>
+            <th>책 이름</th>
+            <th>책 저자</th>
+            <th>빌린 날짜</th>
+            <th>반납 날짜</th>
+            <th>학생 번호</th>
+            <th>학생 이메일</th>
+            <th>학생 이름</th>
+            <th>학생 연락처</th>
+        </tr>
+        <tr th:each="book : ${borrowedBookList}">
+            <td th:text="${book.bookId}"></td>
+            <td th:text="${book.bookTitle}"></td>
+            <td th:text="${book.bookAuthor}"></td>
+            <td th:text="${book.borrowedDate}"></td>
+            <td th:text="${book.returnedDate}"></td>
+            <td th:text="${book.studentNumber}"></td>
+            <td th:text="${book.studentEmail}"></td>
+            <td th:text="${book.studentName}"></td>
+            <td th:text="${book.studentPhone}"></td>
+        </tr>
+        <br>
+    </table>
+
+</body>
+</html>

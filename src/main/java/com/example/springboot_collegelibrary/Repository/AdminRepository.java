@@ -1,6 +1,8 @@
 package com.example.springboot_collegelibrary.Repository;
 
 
+import com.example.springboot_collegelibrary.dto.AdminBookBorrowDTO;
+import com.example.springboot_collegelibrary.dto.AdminBookBorrowedDTO;
 import com.example.springboot_collegelibrary.entity.BookTableEntity;
 import com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity;
 import com.example.springboot_collegelibrary.entity.LateFeesTableEntity;
@@ -55,5 +57,14 @@ public ArrayList<BorrowedBookTableEntity> getBorrowedBookByBookId(String bookId)
     }
     public int insertNewBook(BookTableEntity bookTableEntity){
         return adminCommandMapper.insertNewBook(bookTableEntity);
+    }
+    public ArrayList<AdminBookBorrowDTO> getAdminBookOverdueList(){
+        return adminCommandMapper.getAdminBookOverdueList();
+    }
+    public ArrayList<AdminBookBorrowDTO> getAdminBookBorrowList(){
+        return adminCommandMapper.getAdminBookBorrowList();
+    }
+    public ArrayList<AdminBookBorrowedDTO> getAdminBookBorrowedList(){
+        return adminCommandMapper.getAdminBookBorrowedList();
     }
 }

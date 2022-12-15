@@ -1,6 +1,8 @@
 package com.example.springboot_collegelibrary.Service;
 
 import com.example.springboot_collegelibrary.Repository.AdminRepository;
+import com.example.springboot_collegelibrary.dto.AdminBookBorrowDTO;
+import com.example.springboot_collegelibrary.dto.AdminBookBorrowedDTO;
 import com.example.springboot_collegelibrary.entity.BookTableEntity;
 import com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity;
 import com.example.springboot_collegelibrary.entity.LateFeesTableEntity;
@@ -68,5 +70,14 @@ public class AdminService {
             adminRepository.insertNewBook(bookTableEntity);
             return 1;
         }
+    }
+    public ArrayList<AdminBookBorrowDTO> getAdminBookOverdueList(){
+        return adminRepository.getAdminBookOverdueList();
+    }
+    public ArrayList<AdminBookBorrowDTO> getAdminBookBorrowList(){
+        return adminRepository.getAdminBookBorrowList();
+    }
+    public ArrayList<AdminBookBorrowedDTO> getAdminBookBorrowedList(){
+        return adminRepository.getAdminBookBorrowedList();
     }
 }

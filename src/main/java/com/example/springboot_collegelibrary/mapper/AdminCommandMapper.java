@@ -1,5 +1,7 @@
 package com.example.springboot_collegelibrary.mapper;
 
+import com.example.springboot_collegelibrary.dto.AdminBookBorrowDTO;
+import com.example.springboot_collegelibrary.dto.AdminBookBorrowedDTO;
 import com.example.springboot_collegelibrary.entity.BookTableEntity;
 import com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity;
 import com.example.springboot_collegelibrary.entity.LateFeesTableEntity;
@@ -25,4 +27,7 @@ public interface AdminCommandMapper {
     public int increaseTotalQuantityOfBook(String bookId);
     public int decreaseTotalQuantityOfBook(String bookId);
     public int insertNewBook(BookTableEntity bookTableEntity);
+    public ArrayList<AdminBookBorrowDTO> getAdminBookOverdueList();
+    public ArrayList<AdminBookBorrowDTO> getAdminBookBorrowList();
+    public ArrayList<AdminBookBorrowedDTO> getAdminBookBorrowedList();
 }

@@ -75,5 +75,53 @@
             (#{bookId}, #{bookTitle}, #{bookAuthor}, #{bookQuantity}, #{bookAvailable}, #{bookPrice})
     </insert>
 
+    <select id="getAdminBookOverdueList" resultType="com.example.springboot_collegelibrary.dto.AdminBookBorrowDTO">
+        select
+            a.bookId, a.bookTitle, a.bookAuthor, b.borrowedDate, b.dueDate, c.studentNUmber, c.studentEmail, c.studentName, c.studentPhone
+        from
+            book a right outer join borrowedbook b
+                                    on
+                                        a.bookId = b.bookId
+                   inner join student c
+                              on
+                                  b.studentEmail = c.studentEmail
+        where
+            b.returnedDate is null and
+            cast(current_timestamp() as DATE)>CAST(dueDate as DATE)
+        order by borrowedDate desc
+    </select>
+
+    <select id="getAdminBookBorrowList" resultType="com.example.springboot_collegelibrary.dto.AdminBookBorrowDTO">
+        select
+            a.bookId, a.bookTitle, a.bookAuthor, b.borrowedDate, b.dueDate, c.studentNUmber, c.studentEmail, c.studentName, c.studentPhone
+        from
+            book a right outer join borrowedbook b
+                                    on
+                                        a.bookId = b.bookId
+                   inner join student c
+                              on
+                                  b.studentEmail = c.studentEmail
+        where
+            b.returnedDate is null and
+        CAST(dueDate as DATE) >= cast(current_timestamp() as DATE)
+        order by borrowedDate desc
+    </select>
+
+    <select id="getAdminBookBorrowedList" resultType="com.example.springboot_collegelibrary.dto.AdminBookBorrowedDTO">
+        select
+            a.bookId, a.bookTitle, a.bookAuthor, b.borrowedDate, b.returnedDate , c.studentNUmber, c.studentEmail, c.studentName, c.studentPhone
+        from
+            book a right outer join borrowedbook b
+                                    on
+                                        a.bookId = b.bookId
+                   inner join student c
+                              on
+                                  b.studentEmail = c.studentEmail
+        where
+            b.returnedDate is not null
+        order by borrowedDate desc
+    </select>
+
+
 
 </mapper>

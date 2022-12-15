@@ -12,4 +12,5 @@
         where
             b.studentEmail = #{studentEmail}
     </select>
+
 </mapper>
