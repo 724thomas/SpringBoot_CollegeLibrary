@@ -29,7 +29,6 @@ public class AdminBookBorrowedDTO {
     public String getBookId() {
         return bookId;
     }
-
     public void setBookId(String bookId) {
         this.bookId = bookId;
     }
