@@ -86,6 +86,34 @@ Maybe CSS?<br>
 <br>
 <h3>Bibliography:</h3>
 [Java]<br>
+[Spring] AOP 적용하기 (Annotation - Before, After, ...) (담크 2021.07.05)A<br>
+https://darmk.tistory.com/entry/Spring-12-2-AOP-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-Annotation-Before-After-AfterReturning-AfterThrowing<br>
+Spring AOP @After, AfterReturning, @AfterThrowing 사용하기 (블로그 2018.11.10)<br>
+https://deepweller.tistory.com/30<br>
+HTML Input 타입 Number 알아보기 (WEBISFREE 2019.08.05)<br>
+https://webisfree.com/2016-07-20/[html]-input-%ED%83%80%EC%9E%85-number-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0<br>
+Copying value from one input field to another input field (Steeve 2012.07.26)<br>
+https://stackoverflow.com/questions/11662715/copying-value-from-one-input-field-to-another-input-field<br>
+인터페이스를 활용한 Service 게층과 Repository계층에 대한 이해 (밀당하는It 2020.08.31)<br>
+https://u-it.tistory.com/entry/Service%EA%B3%84%EC%B8%B5%EA%B3%BC-Repository%EA%B3%84%EC%B8%B5%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4<br>
+Disable editing default value of text input (halofourteen 2012.12.04)<br>
+https://stackoverflow.com/questions/13701923/disable-editing-default-value-of-text-input<br>
+[HTML] input box에 default 값 설정, <input value='노출 텍스트'> (임대리 개발일지 2019.04.09)<br>
+https://server-engineer.tistory.com/635<br>
+[Spring] 요청방식 (@RequestMapping, @GetMapping, @PostMapping) (dyunge_100 2022.04.19)<br>
+https://velog.io/@dyunge_100/Spring-%EC%9A%94%EC%B2%AD-%EB%B0%A9%EC%8B%9DRequestMapping-GetMapping-PostMapping<br>
+Annotations "not applicable to type" (Quarks 2013.08.07)<br>
+https://stackoverflow.com/questions/18103586/annotations-not-applicable-to-type<br>
+자바 extends, implements 차이 (hkoo9329 2019.12.15)<br>
+https://velog.io/@hkoo9329/%EC%9E%90%EB%B0%94-extends-implements-%EC%B0%A8%EC%9D%B4<br>
+html에서 DTO에 담긴 객체형식이 전송 가능할까요? (안준석 2021.06.18)<br>
+https://www.inflearn.com/questions/233823/html%EC%97%90%EC%84%9C-dto%EC%97%90%EB%8B%B4%EA%B8%B4-%EA%B0%9D%EC%B2%B4%ED%98%95%EC%8B%9D%EC%9D%B4-%EC%A0%84%EC%86%A1%EA%B0%80%EB%8A%A5%ED%95%A0%EA%B9%8C%EC%9A%94<br>
+dto를 model로 html에 보냈는대 value값을 인식하지 못합니다. (루이네스 2020.04.06)<br>
+https://okky.kr/articles/707686<br>
+MySQL 비교 연산자(8.x 기준) (yeon Biju 2020.03.18)<br>
+https://webobj.tistory.com/85<br>
+SQL not Equal to (!=) Operator for beginners (Database.Guide 2020.12.02)<br>
+https://database.guide/sql-not-equal-to-operator-for-beginners-exclamation-equals-sign/<br>
 Java controller to html if alert (Tom.C 2022.12.11)<br>
 https://stackoverflow.com/questions/74759472/java-controller-to-html-if-alert?noredirect=1#comment131941588_74759472 <br>
 Controller에서 자바스크립트 alert를 사용해보자 (Rojae 2020.11.04)<br>
