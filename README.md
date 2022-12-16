@@ -96,7 +96,7 @@ Copying value from one input field to another input field (Steeve 2012.07.26)<br
 https://stackoverflow.com/questions/11662715/copying-value-from-one-input-field-to-another-input-field<br>
 인터페이스를 활용한 Service 게층과 Repository계층에 대한 이해 (밀당하는It 2020.08.31)<br>
 https://u-it.tistory.com/entry/Service%EA%B3%84%EC%B8%B5%EA%B3%BC-Repository%EA%B3%84%EC%B8%B5%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4<br>
-Disable editing default value of text input (halofourteen 2012.12.04)<br>
+Disable editing default value of text input (halofourteen 2012.12.04)</br>
 https://stackoverflow.com/questions/13701923/disable-editing-default-value-of-text-input<br>
 [HTML] input box에 default 값 설정, <input value='노출 텍스트'> (임대리 개발일지 2019.04.09)<br>
 https://server-engineer.tistory.com/635<br>
