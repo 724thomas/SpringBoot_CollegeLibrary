@@ -1,4 +1,4 @@
-package com.example.springboot_collegelibrary.Repository;
+package com.example.springboot_collegelibrary.repository;
 
 import com.example.springboot_collegelibrary.dto.StudentTableDTO;
 import com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity;

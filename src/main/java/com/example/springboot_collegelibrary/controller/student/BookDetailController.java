@@ -1,17 +1,13 @@
 package com.example.springboot_collegelibrary.controller.student;
 
-import com.example.springboot_collegelibrary.Service.BookBorrowService;
-import com.example.springboot_collegelibrary.Service.BookDetailService;
-import com.example.springboot_collegelibrary.dto.BookDetailDTO;
+import com.example.springboot_collegelibrary.service.BookBorrowService;
+import com.example.springboot_collegelibrary.service.BookDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 
 @Controller
 public class BookDetailController {

@@ -1,7 +1,6 @@
-package com.example.springboot_collegelibrary.Service;
+package com.example.springboot_collegelibrary.service;
 
-import com.example.springboot_collegelibrary.Repository.BookReturnRepository;
-import com.example.springboot_collegelibrary.dto.BorrowedBookDTO;
+import com.example.springboot_collegelibrary.repository.BookReturnRepository;
 import com.example.springboot_collegelibrary.dto.StudentTableDTO;
 import com.example.springboot_collegelibrary.entity.BorrowedBookTableEntity;
 import com.example.springboot_collegelibrary.entity.LateFeesTableEntity;
@@ -9,12 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 import static java.lang.Math.min;
-import static sun.swing.MenuItemLayoutHelper.max;
 
 @Service
 public class BookReturnService {

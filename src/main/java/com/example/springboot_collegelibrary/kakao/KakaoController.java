@@ -1,6 +1,5 @@
-package com.example.springboot_collegelibrary.Kakao;
+package com.example.springboot_collegelibrary.kakao;
 
-import com.example.springboot_collegelibrary.dto.StudentTableDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

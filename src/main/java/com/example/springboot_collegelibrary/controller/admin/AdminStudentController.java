@@ -1,8 +1,8 @@
 package com.example.springboot_collegelibrary.controller.admin;
 
-import com.example.springboot_collegelibrary.Service.AdminService;
-import com.example.springboot_collegelibrary.Service.MoneyTransactionService;
-import com.example.springboot_collegelibrary.Service.StudentHistoryService;
+import com.example.springboot_collegelibrary.service.AdminService;
+import com.example.springboot_collegelibrary.service.MoneyTransactionService;
+import com.example.springboot_collegelibrary.service.StudentHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,7 +1,7 @@
 package com.example.springboot_collegelibrary.controller.admin;
 
 
-import com.example.springboot_collegelibrary.Service.AdminService;
+import com.example.springboot_collegelibrary.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

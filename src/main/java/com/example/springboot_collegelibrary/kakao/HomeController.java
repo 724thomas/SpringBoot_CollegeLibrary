@@ -1,7 +1,6 @@
-package com.example.springboot_collegelibrary.Kakao;
+package com.example.springboot_collegelibrary.kakao;
 
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 

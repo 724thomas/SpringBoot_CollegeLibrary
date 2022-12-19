@@ -1,8 +1,8 @@
 package com.example.springboot_collegelibrary.controller;
 
 
-import com.example.springboot_collegelibrary.Repository.MoneyTransactionRepository;
-import com.example.springboot_collegelibrary.Service.MoneyTransactionService;
+import com.example.springboot_collegelibrary.repository.MoneyTransactionRepository;
+import com.example.springboot_collegelibrary.service.MoneyTransactionService;
 import com.example.springboot_collegelibrary.aop.SkipLoginCheck;
 import com.example.springboot_collegelibrary.dto.MoneyTransactionDTO;
 import org.springframework.beans.factory.annotation.Autowired;

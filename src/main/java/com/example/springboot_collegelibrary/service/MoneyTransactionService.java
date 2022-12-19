@@ -1,6 +1,6 @@
-package com.example.springboot_collegelibrary.Service;
+package com.example.springboot_collegelibrary.service;
 
-import com.example.springboot_collegelibrary.Repository.MoneyTransactionRepository;
+import com.example.springboot_collegelibrary.repository.MoneyTransactionRepository;
 import com.example.springboot_collegelibrary.dto.MoneyTransactionDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

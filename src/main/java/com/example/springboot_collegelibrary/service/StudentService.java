@@ -1,7 +1,7 @@
-package com.example.springboot_collegelibrary.Service;
+package com.example.springboot_collegelibrary.service;
 
 
-import com.example.springboot_collegelibrary.Repository.StudentRepository;
+import com.example.springboot_collegelibrary.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,8 @@
-package com.example.springboot_collegelibrary.Service;
+package com.example.springboot_collegelibrary.service;
 
-import com.example.springboot_collegelibrary.Repository.BookBorrowRepository;
-import com.example.springboot_collegelibrary.Repository.BookDetailRepository;
-import com.example.springboot_collegelibrary.Repository.MoneyTransactionRepository;
+import com.example.springboot_collegelibrary.repository.BookBorrowRepository;
+import com.example.springboot_collegelibrary.repository.BookDetailRepository;
+import com.example.springboot_collegelibrary.repository.MoneyTransactionRepository;
 import com.example.springboot_collegelibrary.dto.BorrowedBookDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

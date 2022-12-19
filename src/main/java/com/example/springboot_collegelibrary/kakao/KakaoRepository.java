@@ -1,4 +1,4 @@
-package com.example.springboot_collegelibrary.Kakao;
+package com.example.springboot_collegelibrary.kakao;
 
 import com.example.springboot_collegelibrary.dto.StudentTableDTO;
 import com.example.springboot_collegelibrary.entity.StudentTableEntity;

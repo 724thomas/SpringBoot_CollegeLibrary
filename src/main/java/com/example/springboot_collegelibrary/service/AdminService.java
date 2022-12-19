@@ -1,6 +1,6 @@
-package com.example.springboot_collegelibrary.Service;
+package com.example.springboot_collegelibrary.service;
 
-import com.example.springboot_collegelibrary.Repository.AdminRepository;
+import com.example.springboot_collegelibrary.repository.AdminRepository;
 import com.example.springboot_collegelibrary.dto.AdminBookBorrowDTO;
 import com.example.springboot_collegelibrary.dto.AdminBookBorrowedDTO;
 import com.example.springboot_collegelibrary.entity.BookTableEntity;

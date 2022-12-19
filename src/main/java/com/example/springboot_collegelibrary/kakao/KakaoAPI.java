@@ -1,4 +1,4 @@
-package com.example.springboot_collegelibrary.Kakao;
+package com.example.springboot_collegelibrary.kakao;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

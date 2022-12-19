@@ -1,6 +1,6 @@
 package com.example.springboot_collegelibrary.controller.student;
 
-import com.example.springboot_collegelibrary.Service.StudentService;
+import com.example.springboot_collegelibrary.service.StudentService;
 import com.example.springboot_collegelibrary.aop.SkipLoginCheck;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
