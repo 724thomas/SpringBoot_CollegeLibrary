@@ -5,10 +5,12 @@ import org.opencv.core.Mat;
 import org.opencv.videoio.VideoCapture;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+
 @Service
 public class FaceService {
 
-    public static void TakePicture(String outputFileName) {
+    public File TakePicture(String outputFileName) {
         System.out.println("Attempting to take picture");
 
         // Load the OpenCV library
@@ -20,7 +22,7 @@ public class FaceService {
         // Check if the video capture object was created successfully
         if (!capture.isOpened()) {
             System.out.println("Error: Could not access webcam.");
-            return;
+            return null;
         }
 
         // Create a new matrix to store the video frame
@@ -30,9 +32,12 @@ public class FaceService {
         capture.read(frame);
 
         // Save the frame to a file
-        org.opencv.imgcodecs.Imgcodecs.imwrite(outputFileName, frame);
+        String filePath = "src/main/resources/static/images/"+ outputFileName;
+        org.opencv.imgcodecs.Imgcodecs.imwrite(filePath, frame);
 
         // Release the video capture object
         capture.release();
+
+        return new File(filePath);
     }
 }
