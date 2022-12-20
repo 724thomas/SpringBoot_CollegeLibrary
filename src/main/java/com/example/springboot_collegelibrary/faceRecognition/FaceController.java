@@ -22,6 +22,10 @@ public class FaceController {
     public String face(Model model, HttpSession session) {
         String studentEmail = (String)session.getAttribute("email");
         studentEmail="724thomas@hanmail.net";
+//        faceService.TakePicture(studentEmail);
+        faceService.TakePictureAndDetectFace(studentEmail);
+        faceService.cutOnlyFace(studentEmail);
+        faceService.FaceSimilarityVideoAndPicture(studentEmail);
         model.addAttribute("imageUrl", "images/"+studentEmail+".jpg");
         return "image-page";
     }
