@@ -25,8 +25,20 @@ public class FaceController {
 //        faceService.TakePicture(studentEmail);
         faceService.TakePictureAndDetectFace(studentEmail);
         faceService.cutOnlyFace(studentEmail);
-        faceService.FaceSimilarityVideoAndPicture(studentEmail);
+//        faceService.FaceSimilarityVideoAndPicture(studentEmail);
+        // Correct Face detected / Wrong face detected / Error opening video stream
         model.addAttribute("imageUrl", "images/"+studentEmail+".jpg");
         return "image-page";
+    }
+
+    @GetMapping("/faceCheck")
+    public String faceCheck(Model model, HttpSession session){
+        String studentEmail = (String)session.getAttribute("email");
+        studentEmail="724thomas@hanmail.net";
+//        faceService.TakePicture(studentEmail);
+        String result = faceService.FaceSimilarityVideoAndPicture(studentEmail);
+        // Correct Face detected / Wrong face detected / Error opening video stream
+        model.addAttribute("faceCheck", result);
+        return "image-check";
     }
 }

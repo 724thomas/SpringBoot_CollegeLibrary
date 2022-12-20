@@ -97,11 +97,9 @@ public class FaceService {
         }
     }
 
-    public void FaceSimilarityVideoAndPicture(String userEmail) {
+    public String FaceSimilarityVideoAndPicture(String userEmail) {
         System.setProperty("java.library.path", "src/main/resources/classifier/");
-        System.out.println("java.awt.headless=" + System.getProperty("java.awt.headless"));
         System.setProperty("java.awt.headless", "false");
-        System.out.println("java.awt.headless=" + System.getProperty("java.awt.headless"));
         nu.pattern.OpenCV.loadLocally();
         OpenCV.loadShared();
         // Load the OpenCV library
@@ -113,17 +111,20 @@ public class FaceService {
         // Check if the video stream is open
         if (!capture.isOpened()) {
             System.out.println("Error opening video stream");
-            return;
+            return "Error opening video stream";
         }
 
         // Load the face classifier
         CascadeClassifier faceClassifier = new CascadeClassifier("src/main/resources/classifier/haarcascade_frontalface_default.xml");
         // Loop through the frames of the video stream
-        while (true) {
-            // Read a frame from the video stream
+        double similarity=0;
+        int tries=0;
+        while (similarity<0.7 && tries<100) {
+            tries+=1;
+
             Mat frame = new Mat();
             capture.read(frame);
-            // Detect faces in the frame
+
 
             MatOfRect faceDetections = new MatOfRect();
             faceClassifier.detectMultiScale(frame, faceDetections);
@@ -131,7 +132,7 @@ public class FaceService {
             try {
                 Rect faceRect = faceDetections.toArray()[0]; // assume there is only one face
                 Mat face = new Mat(frame, faceRect);
-                compareFace("src/main/resources/static/images/"+ userEmail+".jpg", face);
+                similarity = compareFace("src/main/resources/static/images/"+ userEmail+".jpg", face);
             } catch (Exception e) {
                 System.out.println("No face detected");
             }
@@ -139,22 +140,19 @@ public class FaceService {
             faceClassifier.detectMultiScale(frame, faces);
 
             // Iterate over the detected faces and draw a rectangle around each face
-            for (Rect rect : faces.toArray()) {
-                Imgproc.rectangle(frame, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0, 255, 0), 3);
-            }
+//            for (Rect rect : faces.toArray()) {
+//                Imgproc.rectangle(frame, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height), new Scalar(0, 255, 0), 3);
+//            }
 
             // Display the frame in a window
-            HighGui.imshow("Video", frame);
-
-            // Wait for a key press before continuing to the next frame
-            int key = HighGui.waitKey(1);
-            if (key == 27) { // Escape key
-                break;
-            }
+//            HighGui.imshow("Video", frame);
+//            int key = HighGui.waitKey(1);
+//            if (key == 27) { // Escape key
+//                break;
+//            }
         }
-
-        // Release the video capture resources
         capture.release();
+        return tries < 100 ? "Correct Face detected" : "Wrong face detected";
     }
 
     public double compareFace(String filename, Mat frame){
