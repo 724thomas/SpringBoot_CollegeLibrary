@@ -6,16 +6,18 @@ public class LateFeesTableEntity {
     private String bookId;
     private String borrowedDate;
     private String returnedDate;
+    private String dueDate;
     private int latefee;
 
     public LateFeesTableEntity() {
     }
 
-    public LateFeesTableEntity(String studentEmail, String bookId, String borrowedDate, String returnedDate, int latefee) {
+    public LateFeesTableEntity(String studentEmail, String bookId, String borrowedDate, String returnedDate, String dueDate, int latefee) {
         this.studentEmail = studentEmail;
         this.bookId = bookId;
         this.borrowedDate = borrowedDate;
         this.returnedDate = returnedDate;
+        this.dueDate = dueDate;
         this.latefee = latefee;
     }
 
@@ -35,6 +37,9 @@ public class LateFeesTableEntity {
         return returnedDate;
     }
 
+    public String getDueDate(){
+        return dueDate;
+    }
     public int getLatefee() {
         return latefee;
     }

@@ -98,7 +98,8 @@ public class BookReturnService {
         else {
             String borrowedDate = borrowedBookTableEntity.getBorrowedDate();
             String returnedDate = currentDate;
-            LateFeesTableEntity lateFeesTableEntity = new LateFeesTableEntity(studentEmail,bookId,borrowedDate,returnedDate,lateFee);
+            String dueDate= borrowedBookTableEntity.getDueDate();
+            LateFeesTableEntity lateFeesTableEntity = new LateFeesTableEntity(studentEmail,bookId,borrowedDate,returnedDate,dueDate,lateFee);
             return bookReturnRepository.insertLatefees(lateFeesTableEntity);
         }
     }
