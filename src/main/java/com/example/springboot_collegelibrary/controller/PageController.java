@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
 
 @Controller
 public class PageController {
@@ -35,6 +36,14 @@ public class PageController {
 
     @GetMapping("/searchPage")
     public String search(Model model, HttpSession session){
+        String studentEmail = (String) session.getAttribute("email");
+        String fileName = studentEmail+".jpg";
+        String directory = "src/main/resources/static/images/";
+        File file = new File(directory, fileName);
+        if (!file.exists()) {
+            return "prepare";
+        }
+
         String userEmail=(String)session.getAttribute("email");
         model.addAttribute("email", userEmail);
         model.addAttribute("balance", moneyTransactionService.selectStudentBalanceWithEmail(userEmail));

@@ -50,11 +50,11 @@ public class FaceService {
     public void TakePictureAndDetectFace(String userEmail) {
         // Load the OpenCV library
         System.setProperty("java.library.path", "src/main/resources/classifier/");
+//        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         nu.pattern.OpenCV.loadLocally();
         OpenCV.loadShared();
         // Load the OpenCV library
 //        System.loadLibrary("opencv_java460");
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         // Create a new video capture object
         // Check if the video capture object was created successfully
         // Create a new matrix to store the video frame
@@ -102,10 +102,8 @@ public class FaceService {
         System.setProperty("java.awt.headless", "false");
         nu.pattern.OpenCV.loadLocally();
         OpenCV.loadShared();
-        // Load the OpenCV library
-//        System.loadLibrary("opencv_java460");
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        // Create a new VideoCapture object
+//        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+
         VideoCapture capture = new VideoCapture(0);
 
         // Check if the video stream is open
@@ -119,7 +117,7 @@ public class FaceService {
         // Loop through the frames of the video stream
         double similarity=0;
         int tries=0;
-        while (similarity<0.7 && tries<100) {
+        while (similarity<0.80 && tries<100) {
             tries+=1;
 
             Mat frame = new Mat();
@@ -170,8 +168,9 @@ public class FaceService {
 
     public void cutOnlyFace(String userEmail) {
         // Load the OpenCV library
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-
+//        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        nu.pattern.OpenCV.loadLocally();
+        OpenCV.loadShared();
         // Load the input image
         Mat image = Imgcodecs.imread("src/main/resources/static/images/"+ userEmail+".jpg");
 

@@ -1,5 +1,6 @@
 package com.example.springboot_collegelibrary.controller.student;
 
+import com.example.springboot_collegelibrary.faceRecognition.FaceService;
 import com.example.springboot_collegelibrary.service.MoneyTransactionService;
 import com.example.springboot_collegelibrary.dto.MoneyTransactionDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ public class MoneyTransactionController {
 
     @Autowired
     private MoneyTransactionService moneyTransactionService;
+    @Autowired
+    private FaceService faceService;
 
     @GetMapping("/depositPoint")
     public String depositPoint(@ModelAttribute MoneyTransactionDTO moneyTransactionDTO, HttpSession session) {
@@ -30,10 +33,16 @@ public class MoneyTransactionController {
         tempDTO.setEmail(String.valueOf(session.getAttribute("email")));
         tempDTO.setAmountTransaction(-withdrawAmount);
         tempDTO.setUid("randomWithdrawId");
+        String recognitionResult = faceService.FaceSimilarityVideoAndPicture(String.valueOf(session.getAttribute("email")));
+        if (!recognitionResult.equals("Correct Face detected")) {
+            System.out.println("Different face detected");
+            return "redirect:/logout";
+        }
+
         if (moneyTransactionService.moneyTransaction(tempDTO).equals("Success")) {
             return "redirect:/";
         } else {
-            return "redirect:/goWithdraw";
+            return "redirect:/logout";
         }
     }
 }
