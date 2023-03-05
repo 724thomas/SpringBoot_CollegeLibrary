@@ -1,11 +1,53 @@
-# SpringBoot_CollegeLibrary
+# :books: SpringBoot_CollegeLibrary
+대학교의 온라인 도서관 서비스를 Spring Boot을 사용하여 구현해보자!
+
+
+<br/><br/>
 
 
 
-<h3>Aim:</h3>
-대학교에서 쓰는 책 대여 서비스 SpringBoot에서 구현<br>
-<br>
-<br>
+## :mortar_board: 프로젝트 목표 (Project Goals)
+1. 지금까지 공부해왔던 것을 실제로 적용해보자!
+2. 하나의 파트만이 아닌, 처음부터 끝까지, 모든 기능들을 경험해보고 구현해보자!
+3. 실제 대학교 온라인 도서관 서비스들을 바탕으로 기능들을 제공해보자!
+4. 개인적으로(호기심에) 공부했었던 기술들을 창의적으로 사용해보자!
+5. 즐기자!!! :satisfied:
+
+
+<br/><br/>
+
+
+## :hammer: 기술 스택 (Technologies Used)
+![Java](https://img.shields.io/badge/Java-007396?style=flat-round&logo=Java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-round&logo=Spring%20Boot&logoColor=white)
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-005F0F?style=flat-round&logo=Thymeleaf&logoColor=white)
+
+![JSoup](https://img.shields.io/badge/JSoup-E87333?style=flat-round)
+![Kakao API](https://img.shields.io/badge/Kakao%20API-FEE500?style=flat-round&logo=Kakao&logoColor=black)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-round&logo=OpenCV&logoColor=white)
+![JavaCV](https://img.shields.io/badge/JavaCV-990000?style=flat-round)
+![VideoIO](https://img.shields.io/badge/VideoIO-FF6F52?style=flat-round)
+
+![MyBatis](https://img.shields.io/badge/MyBatis-FF6F52?style=flat-round&logo=MyBatis&logoColor=white)
+![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=flat-round&logo=MariaDB&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-round&logo=MySQL&logoColor=white)
+
+
+<br/><br/>
+
+
+
+
+<br/><br/>
+
+
+## :floppy_disk: ER 다이어그램 (ER-Diagram with Cardinality Constraints)
+![image](https://user-images.githubusercontent.com/113500771/222949303-976d1839-78ad-40c7-adf7-72b0eb9a20bd.png)
+
+
+<br/><br/>
+
+
 <h3>Hypothesis:</h3>
 회원가입, 로그인 가능<br>
 로그인 후, 책 검색, 대여, 반납<br>
